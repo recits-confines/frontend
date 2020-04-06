@@ -55,6 +55,13 @@ export default {
   axios: {
   },
   /*
+  ** Sentry module configuration
+  ** See https://github.com/nuxt-community/sentry-module
+  */
+  sentry: {
+    dsn: 'https://770fc2613a3a4b64b4233fc811670ddc@sentry.io/5190984'
+  },
+  /*
   ** Build configuration
   */
   build: {
