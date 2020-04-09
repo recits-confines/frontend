@@ -3,3 +3,11 @@
 @import 'tailwindcss/components';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
+
+.page-enter-active, .page-leave-active {
+    transition: opacity .2s, transform .2s;
+}
+.page-enter, .page-leave-to {
+    opacity: 0;
+    transform: translate(0, 30px);
+}

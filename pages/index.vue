@@ -1,22 +1,19 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        Récits confinés
-      </h1>
-      <h2 class="subtitle">
-        Un projet de recherche scientifique participatif
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Participer
-        </a>
-      </div>
+  <div class="text-center px-1">
+    <logo />
+    <h1 class="title">
+      Récits confinés
+    </h1>
+    <h2 class="subtitle">
+      Un projet de recherche scientifique participatif
+    </h2>
+    <div class="links">
+      <nuxt-link
+        to="/form"
+        class="button--green"
+      >
+        Participer
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -32,33 +29,19 @@ export default {
 </script>
 
 <style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
+  font-size: 30px;
   color: #35495e;
   letter-spacing: 1px;
 }
 
 .subtitle {
   font-weight: 300;
-  font-size: 42px;
+  font-size: 20px;
   color: #526488;
   word-spacing: 5px;
   padding-bottom: 15px;

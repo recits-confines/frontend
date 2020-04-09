@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container flex min-h-screen justify-center items-center mx-auto px-5 py-8">
     <nuxt />
   </div>
 </template>
@@ -51,5 +51,9 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+.container {
+  transition: all .5s cubic-bezier(.55,0,.1,1);
 }
 </style>

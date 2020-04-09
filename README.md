@@ -1,6 +1,10 @@
-# recits-confines
+# Récits confinés
 
-> Récits confinés
+> Un projet de recherche scientifique participatif
+
+![Nuxt CI](https://github.com/LeoColomb/recits-confines/workflows/Nuxt%20CI/badge.svg)
+
+## About
 
 ## Build Setup
 
@@ -20,3 +24,7 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## License
+
+Léo Colombaro
