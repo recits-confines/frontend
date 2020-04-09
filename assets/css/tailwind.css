@@ -4,6 +4,8 @@
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
 
+@import '~/node_modules/vue-form-generator/dist/vfg.css';
+
 .page-enter-active, .page-leave-active {
     transition: opacity .2s, transform .2s;
 }
