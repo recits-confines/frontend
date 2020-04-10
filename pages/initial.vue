@@ -151,12 +151,14 @@
       />
       <FormulateInput
         v-model="delivery"
-        type="checkbox"
+        :options="{true: 'Oui', false: 'Non'}"
+        type="radio"
         label="Livraison de nourriture à domicile"
       />
       <FormulateInput
         v-model="routine"
-        type="checkbox"
+        :options="{true: 'Oui', false: 'Non'}"
+        type="radio"
         label="Routine quotidienne (douche, habillement…)"
       />
       <FormulateInput
@@ -167,13 +169,15 @@
       />
       <FormulateInput
         v-model="school"
-        type="checkbox"
+        :options="{true: 'Oui', false: 'Non'}"
+        type="radio"
         label="Ecole / devoirs des enfants"
       />
       <FormulateInput
         v-model="extra_cleanup"
-        type="checkbox"
-        label="Nettoyage ou bricolage (autres qu’habituels)"
+        :options="{true: 'Oui', false: 'Non'}"
+        type="radio"
+        label="Etat du sommeil"
       />
 
       <FormulateErrors />
