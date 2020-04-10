@@ -178,6 +178,7 @@
       <FormulateInput
         type="submit"
         label="Valider"
+        class="form-submit text-center"
       />
     </FormulateForm>
   </div>
@@ -223,7 +224,9 @@ export default {
 </script>
 
 <style>
+/* purgecss start ignore */
 .formulate-input[data-classification='button'] button {
-  @apply w-full text-xl text-white text-center font-bold py-5 px-5 my-10 rounded;
+  @apply flex justify-center w-full text-xl text-white text-center font-bold py-5 px-5 my-10 rounded;
 }
+/* purgecss end ignore */
 </style>
