@@ -5,7 +5,12 @@
 @import 'tailwindcss/utilities';
 
 /* purgecss start ignore */
-@import '~/node_modules/vue-form-generator/dist/vfg.css';
+@import '~/node_modules/@braid/vue-formulate/dist/snow.css';
+
+.formulate-input .formulate-input-element {
+    max-width: 100%;
+    margin-bottom: .1em;
+}
 
 .page-enter-active, .page-leave-active {
     transition: opacity .2s, transform .2s;
