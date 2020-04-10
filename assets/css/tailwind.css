@@ -6,7 +6,6 @@
 
 /* purgecss start ignore */
 @import '~/node_modules/vue-form-generator/dist/vfg.css';
-/* purgecss end ignore */
 
 .page-enter-active, .page-leave-active {
     transition: opacity .2s, transform .2s;
@@ -15,3 +14,4 @@
     opacity: 0;
     transform: translate(0, 30px);
 }
+/* purgecss end ignore */
