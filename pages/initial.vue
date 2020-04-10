@@ -37,6 +37,7 @@
         type="number"
         label="Provisions initiales estimée"
         help="En jours"
+        min="0"
       />
       <FormulateInput
         v-model="provision_description"
@@ -70,6 +71,7 @@
         v-model="collations"
         type="number"
         label="Nombres de collations dans la journée"
+        min="0"
       />
       <FormulateInput
         v-model="moral_daily"
@@ -136,6 +138,7 @@
         v-model="sorties"
         type="number"
         label="Nombres de sorties"
+        min="0"
       />
       <FormulateInput
         v-model="sorties_goal"
@@ -162,6 +165,7 @@
         v-model="work"
         type="number"
         label="Nombres d'heures de travail"
+        min="0"
       />
       <FormulateInput
         v-model="school"
