@@ -15,14 +15,12 @@
         type="textarea"
         label="Description de l'espace de confinement"
         help="Type, surface, état du logement, environnement extérieur, chez qui ?"
-        validation="required"
       />
       <FormulateInput
         v-model="people"
         type="textarea"
         label="Personnes confinées avec vous"
         help="Nombre, type de relation, âge"
-        validation="required"
       />
       <FormulateInput
         v-model="moral"
@@ -221,6 +219,10 @@ export default {
   },
   methods: {
     submitHandler (data) {
+      const loader = this.$loading.show()
+      setTimeout(() => {
+        loader.hide()
+      }, 5000)
       alert('Soumis, merci !')
     }
   }

@@ -6,6 +6,7 @@
 
 /* purgecss start ignore */
 @import '~/node_modules/@braid/vue-formulate/dist/snow.css';
+@import '~/node_modules/vue-loading-overlay/dist/vue-loading.css';
 
 .formulate-input .formulate-input-element {
     max-width: 100%;

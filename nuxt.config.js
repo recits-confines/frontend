@@ -28,7 +28,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/vue-formulate'
+    '~/plugins/formulate',
+    '~/plugins/loading'
   ],
   /*
   ** Nuxt.js dev-modules
