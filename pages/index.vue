@@ -11,9 +11,15 @@
       <div class="links">
         <nuxt-link
           to="/initial"
-          class="button--green"
+          class="inline-block bg-green-500 hover:bg-transparent text-white font-semibold hover:text-green-700 py-3 px-6 border border-transparent hover:border-green-700 rounded"
         >
           Participer
+        </nuxt-link>
+        <nuxt-link
+          to="/daily"
+          class="inline-block bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-3 px-6 border border-green-700 hover:border-transparent rounded"
+        >
+          Continuer
         </nuxt-link>
       </div>
     </div>
