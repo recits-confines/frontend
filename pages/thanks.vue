@@ -38,12 +38,7 @@ export default {
   padding-bottom: 15px;
 }
 
-.links {
-  padding-top: 15px;
-}
-
 hr {
   @apply my-10;
 }
-
 </style>

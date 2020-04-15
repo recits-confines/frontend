@@ -182,7 +182,7 @@ export default {
       setTimeout(() => {
         this.$router.push('thanks')
         loader.hide()
-      }, 5000)
+      }, 1000)
     }
   }
 }
