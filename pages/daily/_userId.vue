@@ -190,7 +190,7 @@ export default {
     submitHandler (data) {
       const loader = this.$loading.show()
       setTimeout(() => {
-        this.$router.push('thanks')
+        this.$router.push('/thanks')
         loader.hide()
       }, 1000)
     }
