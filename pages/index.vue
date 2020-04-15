@@ -19,7 +19,7 @@
           to="/daily-userId"
           class="inline-block bg-transparent hover:bg-green-500 text-green-700 hover:text-white py-2 px-6 border border-green-700 hover:border-transparent rounded"
         >
-          Continuer
+          Poursuivre
         </nuxt-link>
       </div>
     </div>
