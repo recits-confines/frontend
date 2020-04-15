@@ -71,7 +71,13 @@ export default {
     submitHandler (data) {
       const loader = this.$loading.show()
       setTimeout(() => {
-        this.$router.push('daily')
+        // Math.random().toString(36).substr(2, 9);
+        this.$router.push({
+          name: 'daily-userId',
+          params: {
+            userId: Math.random().toString(36).substr(2, 9)
+          }
+        })
         loader.hide()
       }, 2000)
     }

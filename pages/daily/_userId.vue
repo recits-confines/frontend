@@ -11,6 +11,15 @@
       </p>
       <hr class="my-10">
       <FormulateInput
+        v-model="userId"
+        type="text"
+        label="Identifiant"
+        :help="this.$route.params.userId ? 'Cet identifiant est unique, ne le perdez pas !' : 'Entrer votre identifiant unique à la première participation'"
+        :disabled="this.$route.params.userId"
+        validation="required"
+      />
+      <hr class="my-10">
+      <FormulateInput
         v-model="weather"
         type="select"
         :options="{soleil: 'Soleil', nuages: 'Nuages', pluie: 'Pluie', orages: 'Orages'}"
@@ -156,6 +165,7 @@ export default {
   components: {},
   data () {
     return {
+      userId: this.$route.params.userId || null,
       weather: '',
       vivres: null,
       collations: null,
