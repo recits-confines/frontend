@@ -136,6 +136,7 @@
         type="number"
         label="Nombres d'heures de travail"
         min="0"
+        max="24"
       />
       <FormulateInput
         v-model="school"
