@@ -71,6 +71,7 @@ export default {
     async submitHandler (data) {
       const loader = this.$loading.show()
       localStorage.userId = Math.random().toString(36).substr(2, 9)
+      data.userId = localStorage.userId
       data._subject = 'Récits confinés - Rapport'
       data._template = 'table'
       data._captcha = 'false'
