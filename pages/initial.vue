@@ -68,18 +68,15 @@ export default {
     }
   },
   methods: {
-    submitHandler (data) {
+    async submitHandler (data) {
       const loader = this.$loading.show()
-      setTimeout(() => {
-        // Math.random().toString(36).substr(2, 9);
-        this.$router.push({
-          name: 'daily-userId',
-          params: {
-            userId: Math.random().toString(36).substr(2, 9)
-          }
-        })
-        loader.hide()
-      }, 2000)
+      localStorage.userId = Math.random().toString(36).substr(2, 9)
+      data._subject = 'Récits confinés - Rapport'
+      data._template = 'table'
+      data._captcha = 'false'
+      await this.$axios.$post('https://formsubmit.co/network_formsubmit@colombaro.fr', data)
+      this.$router.push('/daily')
+      loader.hide()
     }
   }
 }

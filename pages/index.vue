@@ -2,22 +2,23 @@
   <div>
     <div class="text-center px-1">
       <logo />
-      <h1 class="title">
-        Récits confinés
-      </h1>
+      <!--      <h1 class="title">-->
+      <!--        Récits confinés-->
+      <!--      </h1>-->
       <h2 class="subtitle">
         Un projet de recherche scientifique participatif
       </h2>
       <div class="links">
         <nuxt-link
+          v-if="!initiated"
           to="/initial"
-          class="inline-block bg-green-500 hover:bg-transparent text-white hover:text-green-700 py-2 px-6 border border-transparent hover:border-green-700 rounded"
+          class="inline-block bg-main hover:bg-transparent text-white hover:text-main py-2 px-6 border border-transparent hover:border-main rounded"
         >
           Participer
         </nuxt-link>
         <nuxt-link
           to="/daily"
-          class="inline-block bg-transparent hover:bg-green-500 text-green-700 hover:text-white py-2 px-6 border border-green-700 hover:border-transparent rounded"
+          class="inline-block bg-transparent hover:bg-main text-main hover:text-white py-2 px-6 border border-main hover:border-transparent rounded"
         >
           Poursuivre
         </nuxt-link>
@@ -61,25 +62,24 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  data () {
+    return {
+      initiated: false
+    }
+  },
+  mounted () {
+    if (localStorage.userId) {
+      this.initiated = true
+    }
   }
 }
 </script>
 
 <style>
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 30px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
 .subtitle {
   font-weight: 300;
   font-size: 20px;
-  color: #526488;
   word-spacing: 5px;
   padding-bottom: 15px;
 }
@@ -89,7 +89,6 @@ export default {
 }
 
 hr {
-  @apply my-10;
+  @apply my-10 border-secondary;
 }
-
 </style>

@@ -14,8 +14,8 @@
         v-model="userId"
         type="text"
         label="Identifiant"
-        :help="this.$route.params.userId ? 'Cet identifiant est unique, ne le perdez pas !' : 'Entrer votre identifiant unique à la première participation'"
-        :disabled="this.$route.params.userId"
+        :help="!initial ? 'Cet identifiant est unique, ne le perdez pas !' : 'Entrer votre identifiant unique à la première participation'"
+        :disabled="!initial"
         validation="required"
       />
       <hr class="my-10">
@@ -166,7 +166,8 @@ export default {
   components: {},
   data () {
     return {
-      userId: this.$route.params.userId || null,
+      initial: false,
+      userId: null,
       weather: '',
       vivres: null,
       collations: null,
@@ -185,6 +186,12 @@ export default {
       work: null,
       school: null,
       extra_cleanup: null
+    }
+  },
+  mounted () {
+    if (localStorage.userId) {
+      this.userId = localStorage.userId
+      this.initial = false
     }
   },
   methods: {
