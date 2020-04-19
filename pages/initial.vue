@@ -42,6 +42,7 @@
         type="textarea"
         label="Vous avez fait des stocks ? Si oui de quoi en priorité ?"
       />
+      <input type="text" name="_gotcha" style="display:none" />
 
       <FormulateErrors />
       <FormulateInput
@@ -75,7 +76,7 @@ export default {
       data._subject = 'Récits confinés - Rapport'
       data._template = 'table'
       data._captcha = 'false'
-      await this.$axios.$post('https://formsubmit.co/network_formsubmit@colombaro.fr', data)
+      await this.$axios.$post('https://formspree.io/mnqbkgyr', data)
       this.$router.push('/daily')
       loader.hide()
     }
