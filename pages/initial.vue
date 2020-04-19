@@ -11,19 +11,19 @@
       </p>
       <hr class="my-10">
       <FormulateInput
-        v-model="space"
+        name="space_description"
         type="textarea"
         label="Description de l'espace de confinement"
         help="Type, surface, état du logement, environnement extérieur, chez qui ?"
       />
       <FormulateInput
-        v-model="people"
+        name="people"
         type="textarea"
         label="Personnes confinées avec vous"
         help="Nombre, type de relation, âge"
       />
       <FormulateInput
-        v-model="moral"
+        name="moral"
         type="range"
         label="Moral inital"
         min="1"
@@ -31,19 +31,19 @@
         show-value="true"
       />
       <FormulateInput
-        v-model="provision_quantity"
+        name="provision_quantity"
         type="number"
         label="Provisions initiales estimée"
         help="En jours"
         min="0"
       />
       <FormulateInput
-        v-model="provision_description"
+        name="provision_description"
         type="textarea"
         label="Vous avez fait des stocks ? Si oui de quoi en priorité ?"
       />
       <FormulateInput
-        v-model="gotcha"
+        name="_gotcha"
         type="text"
         label="Vous avez fait du rien ? Ce champs doit rester vide"
         style="display:none"
@@ -62,26 +62,13 @@
 <script>
 export default {
   components: {},
-  data () {
-    return {
-      formValues: {},
-      space: '',
-      people: '',
-      moral: null,
-      provision_quantity: null,
-      provision_description: '',
-      weather: '',
-      gotcha: null
-    }
-  },
   methods: {
     async submitHandler (data) {
       const loader = this.$loading.show()
       localStorage.userId = Math.random().toString(36).substr(2, 9)
       data.userId = localStorage.userId
       data._subject = 'Récits confinés - Inscription'
-      data._gotcha = data.gotcha
-      if (!data.gotcha) {
+      if (!data._gotcha) {
         await this.$axios.$post('https://formspree.io/mnqbkgyr', data)
       }
       this.$router.push('/daily')

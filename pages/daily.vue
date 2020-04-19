@@ -12,6 +12,7 @@
       <hr class="my-10">
       <FormulateInput
         v-model="userId"
+        name="userId"
         type="text"
         label="Identifiant"
         :help="!initial ? 'Cet identifiant est unique, ne le perdez pas !' : 'Entrer votre identifiant unique à la première participation'"
@@ -20,14 +21,14 @@
       />
       <hr class="my-10">
       <FormulateInput
-        v-model="weather"
+        name="weather"
         type="select"
         :options="{soleil: 'Soleil', nuages: 'Nuages', pluie: 'Pluie', orages: 'Orages'}"
         label="Météo du jour"
         placeholder="Sélectionner"
       />
       <FormulateInput
-        v-model="vivres"
+        name="vivres"
         type="range"
         label="Quantité de vivres"
         min="1"
@@ -35,13 +36,13 @@
         show-value="true"
       />
       <FormulateInput
-        v-model="collations"
+        name="collations"
         type="number"
         label="Nombres de collations dans la journée"
         min="0"
       />
       <FormulateInput
-        v-model="moral_daily"
+        name="moral_daily"
         type="range"
         label="Niveau du moral du jour"
         min="1"
@@ -49,7 +50,7 @@
         show-value="true"
       />
       <FormulateInput
-        v-model="sante"
+        name="sante"
         type="range"
         label="Etat de danté physique"
         min="1"
@@ -57,7 +58,7 @@
         show-value="true"
       />
       <FormulateInput
-        v-model="hygiene"
+        name="hygiene"
         type="range"
         label="Niveau d'hygiène du corps"
         min="1"
@@ -65,7 +66,7 @@
         show-value="true"
       />
       <FormulateInput
-        v-model="relations"
+        name="relations"
         type="range"
         label="Etat des relations avec les co-confiné.e.s"
         min="1"
@@ -73,7 +74,7 @@
         show-value="true"
       />
       <FormulateInput
-        v-model="opinion"
+        name="opinion"
         :options="{
           self_health: 'Ma santé personnelle',
           other_health: 'La santé de mes proches',
@@ -84,32 +85,33 @@
         label="Je m’inquiète pour..."
       />
       <FormulateInput
-        v-model="alcohol"
+        name="alcohol"
         :options="{more: '+ (en augmentation)', stable: '= (stable)', less: '- (en diminution)', none: '0 (aucune)'}"
         type="radio"
         label="Consommation d’alcool"
       />
       <FormulateInput
-        v-model="tabaco"
+        name="tabaco"
         :options="{more: '+ (en augmentation)', stable: '= (stable)', less: '- (en diminution)', none: '0 (aucune)'}"
         type="radio"
         label="Consommation de tabac"
       />
       <FormulateInput
-        v-model="sleep"
+        name="sleep"
         :options="{more: 'Bon', stable: 'Moyen', less: 'Mauvais'}"
         type="radio"
         label="Etat du sommeil"
       />
       <FormulateInput
         v-model="sorties"
+        name="sorties"
         type="number"
         label="Nombres de sorties"
         min="0"
       />
       <FormulateInput
         v-if="sorties > 0"
-        v-model="sorties_goal"
+        name="sorties_goal"
         :options="{
           sport: 'faire du sport',
           food: 'achat de nourriture',
@@ -120,35 +122,41 @@
         label="Sorties pour..."
       />
       <FormulateInput
-        v-model="delivery"
+        name="delivery"
         :options="{true: 'Oui', false: 'Non'}"
         type="radio"
         label="Livraison de nourriture à domicile"
       />
       <FormulateInput
-        v-model="routine"
+        name="routine"
         :options="{true: 'Oui', false: 'Non'}"
         type="radio"
         label="Routine quotidienne (douche, habillement…)"
       />
       <FormulateInput
-        v-model="work"
+        name="work"
         type="number"
         label="Nombres d'heures de travail"
         min="0"
         max="24"
       />
       <FormulateInput
-        v-model="school"
+        name="school"
         :options="{true: 'Oui', false: 'Non'}"
         type="radio"
         label="Ecole / devoirs des enfants"
       />
       <FormulateInput
-        v-model="extra_cleanup"
+        name="extra_cleanup"
         :options="{true: 'Oui', false: 'Non'}"
         type="radio"
         label="Etat du sommeil"
+      />
+      <FormulateInput
+        name="_gotcha"
+        type="text"
+        label="Vous avez fait du rien ? Ce champs doit rester vide"
+        style="display:none"
       />
 
       <FormulateErrors />
@@ -168,24 +176,24 @@ export default {
     return {
       initial: false,
       userId: null,
-      weather: '',
-      vivres: null,
-      collations: null,
-      moral_daily: null,
-      sante: null,
-      hygiene: null,
-      relations: null,
-      opinion: [],
-      alcohol: null,
-      tabaco: null,
-      sleep: null,
-      sorties: null,
-      sorties_goal: [],
-      delivery: null,
-      routine: null,
-      work: null,
-      school: null,
-      extra_cleanup: null
+      // weather: '',
+      // vivres: null,
+      // collations: null,
+      // moral_daily: null,
+      // sante: null,
+      // hygiene: null,
+      // relations: null,
+      // opinion: [],
+      // alcohol: null,
+      // tabaco: null,
+      // sleep: null,
+      sorties: null
+      // sorties_goal: [],
+      // delivery: null,
+      // routine: null,
+      // work: null,
+      // school: null,
+      // extra_cleanup: null
     }
   },
   mounted () {
@@ -195,12 +203,15 @@ export default {
     }
   },
   methods: {
-    submitHandler (data) {
+    async submitHandler (data) {
       const loader = this.$loading.show()
-      setTimeout(() => {
-        this.$router.push('/thanks')
-        loader.hide()
-      }, 1000)
+      localStorage.userId = data.userId
+      data._subject = 'Récits confinés - Rapport journée'
+      if (!data._gotcha) {
+        await this.$axios.$post('https://formspree.io/mnqbkgyr', data)
+      }
+      this.$router.push('/thanks')
+      loader.hide()
     }
   }
 }
