@@ -42,7 +42,12 @@
         type="textarea"
         label="Vous avez fait des stocks ? Si oui de quoi en priorité ?"
       />
-      <input type="text" name="_gotcha" style="display:none" />
+      <FormulateInput
+        v-model="gotcha"
+        type="text"
+        label="Vous avez fait du rien ? Ce champs doit rester vide"
+        style="display:none"
+      />
 
       <FormulateErrors />
       <FormulateInput
@@ -65,7 +70,8 @@ export default {
       moral: null,
       provision_quantity: null,
       provision_description: '',
-      weather: ''
+      weather: '',
+      gotcha: null
     }
   },
   methods: {
@@ -73,10 +79,11 @@ export default {
       const loader = this.$loading.show()
       localStorage.userId = Math.random().toString(36).substr(2, 9)
       data.userId = localStorage.userId
-      data._subject = 'Récits confinés - Rapport'
-      data._template = 'table'
-      data._captcha = 'false'
-      await this.$axios.$post('https://formspree.io/mnqbkgyr', data)
+      data._subject = 'Récits confinés - Inscription'
+      data._gotcha = data.gotcha
+      if (!data.gotcha) {
+        await this.$axios.$post('https://formspree.io/mnqbkgyr', data)
+      }
       this.$router.push('/daily')
       loader.hide()
     }
