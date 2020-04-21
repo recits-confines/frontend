@@ -1,0 +1,85 @@
+::selection {
+  background-color: theme('colors.main');
+  color: theme('colors.background');
+  text-shadow: inherit;
+}
+
+body {
+  font-variant-ligatures: common-ligatures;
+}
+
+table {
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'dlig' 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'dlig' 1;
+  text-rendering: optimizeLegibility;
+}
+
+abbr,
+acronym {
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'smcp' 1, 'c2sc' 1;
+  text-transform: uppercase;
+}
+
+time {
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0;
+}
+
+pre,
+kbd,
+samp,
+code {
+  font-feature-settings: 'kern' 0, 'liga' 1, 'calt' 1, 'dlig' 0, 'pnum' 0, 'tnum' 1, 'onum' 0, 'lnum' 1, 'zero' 1;
+  text-rendering: optimizeLegibility;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+pre code {
+  white-space: pre;
+}
+
+sup {
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'dlig' 0, 'sups' 1;
+}
+
+sub {
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'dlig' 0, 'subs' 1;
+}
+
+q {
+  @include quotemarks(open-quote, close-quote);
+}
+
+ul {
+  @include type-list;
+}
+
+a[href^='tel:'] {
+  font-feature-settings: 'tnum' 1, 'lnum' 1, 'kern' 1;
+}
+
+input[type='color'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='number'],
+input[type='range'],
+input[type='tel'],
+input[type='week'] {
+  font-feature-settings: 'kern' 0, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 0, 'lnum' 1, 'zero' 0;
+}
+
+tbody,
+caption {
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 0, 'tnum' 1, 'onum' 0, 'lnum' 1, 'zero' 1;
+}
+
+q:lang(fr) {
+  quotes: '\AB\202F' '\202F\BB' '\201C\202F' '\202F\201D' '\2018\202F' '\202F\2019';
+}

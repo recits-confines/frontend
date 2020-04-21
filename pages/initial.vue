@@ -1,72 +1,71 @@
 <template>
   <div>
-    <FormulateForm
-      @submit="submitHandler"
-    >
-      <h2 class="text-xl text-center mb-5">
-        Initialisation
-      </h2>
-      <p class="italic">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus dolorum, fuga fugiat itaque perferendis tenetur vero voluptatem. Aliquam assumenda distinctio doloremque doloribus esse, incidunt itaque, labore odit quae quis temporibus!
-      </p>
-      <hr class="my-10">
-      <FormulateInput
-        name="space_description"
-        type="textarea"
-        label="Description de l'espace de confinement"
-        help="Type, surface, état du logement, environnement extérieur, chez qui ?"
-      />
-      <FormulateInput
-        name="people"
-        type="textarea"
-        label="Personnes confinées avec vous"
-        help="Nombre, type de relation, âge"
-      />
-      <FormulateInput
-        name="moral"
-        type="range"
-        label="Moral inital"
-        min="1"
-        max="10"
-        show-value="true"
-      />
-      <FormulateInput
-        name="provision_quantity"
-        type="number"
-        label="Provisions initiales estimée"
-        help="En jours"
-        min="0"
-      />
-      <FormulateInput
-        name="provision_description"
-        type="textarea"
-        label="Vous avez fait des stocks ? Si oui de quoi en priorité ?"
-      />
-      <FormulateInput
-        name="_gotcha"
-        type="text"
-        label="Vous avez fait du rien ? Ce champs doit rester vide"
-        style="display:none"
-      />
+    <Header title="Mon humeur initiale" />
+    <div class="container mx-auto px-5 py-1 lg:px-64">
+      <FormulateForm
+        @submit="submitHandler"
+      >
+        <FormulateInput
+          name="space_description"
+          type="textarea"
+          label="Description de l'espace de confinement"
+          help="Type, surface, état du logement, environnement extérieur, chez qui ?"
+        />
+        <FormulateInput
+          name="people"
+          type="textarea"
+          label="Personnes confinées avec vous"
+          help="Nombre, type de relation, âge"
+        />
+        <FormulateInput
+          name="moral"
+          type="range"
+          label="Moral inital"
+          min="1"
+          max="10"
+          show-value="true"
+        />
+        <FormulateInput
+          name="provision_quantity"
+          type="number"
+          label="Provisions initiales estimée"
+          help="En jours"
+          min="0"
+        />
+        <FormulateInput
+          name="provision_description"
+          type="textarea"
+          label="Vous avez fait des stocks ? Si oui de quoi en priorité ?"
+        />
+        <FormulateInput
+          name="_gotcha"
+          type="text"
+          label="Vous avez fait du rien ? Ce champs doit rester vide"
+          style="display:none"
+        />
 
-      <FormulateErrors />
-      <FormulateInput
-        type="submit"
-        label="Valider"
-        class="form-submit text-center"
-      />
-    </FormulateForm>
+        <FormulateErrors />
+        <FormulateInput
+          type="submit"
+          label="Je valide mon état initial"
+        />
+      </FormulateForm>
+    </div>
   </div>
 </template>
 
 <script>
+import Header from '~/components/Header'
+
 export default {
-  components: {},
+  components: {
+    Header
+  },
   methods: {
     async submitHandler (data) {
       const loader = this.$loading.show()
-      localStorage.userId = Math.random().toString(36).substr(2, 9)
-      data.userId = localStorage.userId
+      this.$store.commit('user/setId', Math.random().toString(36).substr(2, 9))
+      data.userId = this.$store.state.user.id
       data._subject = 'Récits confinés - Inscription'
       if (!data._gotcha) {
         await this.$axios.$post('https://formspree.io/mnqbkgyr', data)
@@ -78,10 +77,5 @@ export default {
 }
 </script>
 
-<style>
-/* purgecss start ignore */
-.formulate-input[data-classification='button'] button {
-  @apply flex justify-center w-full text-xl text-white text-center font-bold py-5 px-5 my-10 rounded;
-}
-/* purgecss end ignore */
+<style scoped>
 </style>

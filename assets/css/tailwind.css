@@ -5,7 +5,9 @@
 @import 'tailwindcss/utilities';
 
 /* purgecss start ignore */
-@import '~/node_modules/@braid/vue-formulate/dist/snow.css';
+@import './fonts.css';
+@import './opentype.css';
+@import './forms.css';
 @import '~/node_modules/vue-loading-overlay/dist/vue-loading.css';
 
 .formulate-input .formulate-input-element {

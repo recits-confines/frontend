@@ -1,181 +1,168 @@
 <template>
   <div>
-    <FormulateForm
-      @submit="submitHandler"
-    >
-      <h2 class="text-xl text-center mb-5">
-        Les événements du jour
-      </h2>
-      <p class="italic">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus dolorum, fuga fugiat itaque perferendis tenetur vero voluptatem. Aliquam assumenda distinctio doloremque doloribus esse, incidunt itaque, labore odit quae quis temporibus!
-      </p>
-      <hr class="my-10">
-      <FormulateInput
-        v-model="userId"
-        name="userId"
-        type="text"
-        label="Identifiant"
-        :help="!initial ? 'Cet identifiant est unique, ne le perdez pas !' : 'Entrer votre identifiant unique à la première participation'"
-        :disabled="!initial"
-        validation="required"
-      />
-      <hr class="my-10">
-      <FormulateInput
-        name="weather"
-        type="select"
-        :options="{soleil: 'Soleil', nuages: 'Nuages', pluie: 'Pluie', orages: 'Orages'}"
-        label="Météo du jour"
-        placeholder="Sélectionner"
-      />
-      <FormulateInput
-        name="vivres"
-        type="range"
-        label="Quantité de vivres"
-        min="1"
-        max="10"
-        show-value="true"
-      />
-      <FormulateInput
-        name="collations"
-        type="number"
-        label="Nombres de collations dans la journée"
-        min="0"
-      />
-      <FormulateInput
-        name="moral_daily"
-        type="range"
-        label="Niveau du moral du jour"
-        min="1"
-        max="10"
-        show-value="true"
-      />
-      <FormulateInput
-        name="sante"
-        type="range"
-        label="Etat de danté physique"
-        min="1"
-        max="10"
-        show-value="true"
-      />
-      <FormulateInput
-        name="hygiene"
-        type="range"
-        label="Niveau d'hygiène du corps"
-        min="1"
-        max="10"
-        show-value="true"
-      />
-      <FormulateInput
-        name="relations"
-        type="range"
-        label="Etat des relations avec les co-confiné.e.s"
-        min="1"
-        max="10"
-        show-value="true"
-      />
-      <FormulateInput
-        name="opinion"
-        :options="{
-          self_health: 'Ma santé personnelle',
-          other_health: 'La santé de mes proches',
-          financial: 'Mes conditions financières',
-          criris: 'La situation sanitaire globale'
-        }"
-        type="checkbox"
-        label="Je m’inquiète pour..."
-      />
-      <FormulateInput
-        name="alcohol"
-        :options="{more: '+ (en augmentation)', stable: '= (stable)', less: '- (en diminution)', none: '0 (aucune)'}"
-        type="radio"
-        label="Consommation d’alcool"
-      />
-      <FormulateInput
-        name="tabaco"
-        :options="{more: '+ (en augmentation)', stable: '= (stable)', less: '- (en diminution)', none: '0 (aucune)'}"
-        type="radio"
-        label="Consommation de tabac"
-      />
-      <FormulateInput
-        name="sleep"
-        :options="{more: 'Bon', stable: 'Moyen', less: 'Mauvais'}"
-        type="radio"
-        label="Etat du sommeil"
-      />
-      <FormulateInput
-        v-model="sorties"
-        name="sorties"
-        type="number"
-        label="Nombres de sorties"
-        min="0"
-      />
-      <FormulateInput
-        v-if="sorties > 0"
-        name="sorties_goal"
-        :options="{
-          sport: 'faire du sport',
-          food: 'achat de nourriture',
-          pets: 'promener le chien',
-          work: 'le travail'
-        }"
-        type="checkbox"
-        label="Sorties pour..."
-      />
-      <FormulateInput
-        name="delivery"
-        :options="{true: 'Oui', false: 'Non'}"
-        type="radio"
-        label="Livraison de nourriture à domicile"
-      />
-      <FormulateInput
-        name="routine"
-        :options="{true: 'Oui', false: 'Non'}"
-        type="radio"
-        label="Routine quotidienne (douche, habillement…)"
-      />
-      <FormulateInput
-        name="work"
-        type="number"
-        label="Nombres d'heures de travail"
-        min="0"
-        max="24"
-      />
-      <FormulateInput
-        name="school"
-        :options="{true: 'Oui', false: 'Non'}"
-        type="radio"
-        label="Ecole / devoirs des enfants"
-      />
-      <FormulateInput
-        name="extra_cleanup"
-        :options="{true: 'Oui', false: 'Non'}"
-        type="radio"
-        label="Etat du sommeil"
-      />
-      <FormulateInput
-        name="_gotcha"
-        type="text"
-        label="Vous avez fait du rien ? Ce champs doit rester vide"
-        style="display:none"
-      />
+    <Header title="Les événements du jour" />
+    <div class="container mx-auto px-5 py-1 lg:px-64">
+      <FormulateForm
+        @submit="submitHandler"
+      >
+        <FormulateInput
+          name="weather"
+          type="select"
+          :options="{soleil: 'Soleil', nuages: 'Nuages', pluie: 'Pluie', orages: 'Orages'}"
+          label="Météo du jour"
+          placeholder="Sélectionner"
+        />
+        <FormulateInput
+          name="vivres"
+          type="range"
+          label="Quantité de vivres"
+          min="1"
+          max="10"
+          show-value="true"
+        />
+        <FormulateInput
+          name="collations"
+          type="number"
+          label="Nombres de collations dans la journée"
+          min="0"
+        />
+        <FormulateInput
+          name="moral_daily"
+          type="range"
+          label="Niveau du moral du jour"
+          min="1"
+          max="10"
+          show-value="true"
+        />
+        <FormulateInput
+          name="sante"
+          type="range"
+          label="Etat de danté physique"
+          min="1"
+          max="10"
+          show-value="true"
+        />
+        <FormulateInput
+          name="hygiene"
+          type="range"
+          label="Niveau d'hygiène du corps"
+          min="1"
+          max="10"
+          show-value="true"
+        />
+        <FormulateInput
+          name="relations"
+          type="range"
+          label="Etat des relations avec les co-confiné.e.s"
+          min="1"
+          max="10"
+          show-value="true"
+        />
+        <FormulateInput
+          name="opinion"
+          :options="{
+            self_health: 'Ma santé personnelle',
+            other_health: 'La santé de mes proches',
+            financial: 'Mes conditions financières',
+            criris: 'La situation sanitaire globale'
+          }"
+          type="checkbox"
+          label="Je m’inquiète pour..."
+        />
+        <FormulateInput
+          name="alcohol"
+          :options="{more: '+ (en augmentation)', stable: '= (stable)', less: '- (en diminution)', none: '0 (aucune)'}"
+          type="radio"
+          label="Consommation d’alcool"
+        />
+        <FormulateInput
+          name="tabaco"
+          :options="{more: '+ (en augmentation)', stable: '= (stable)', less: '- (en diminution)', none: '0 (aucune)'}"
+          type="radio"
+          label="Consommation de tabac"
+        />
+        <FormulateInput
+          name="sleep"
+          :options="{more: 'Bon', stable: 'Moyen', less: 'Mauvais'}"
+          type="radio"
+          label="Etat du sommeil"
+        />
+        <FormulateInput
+          v-model="sorties"
+          name="sorties"
+          type="number"
+          label="Nombres de sorties"
+          min="0"
+        />
+        <FormulateInput
+          v-if="sorties > 0"
+          name="sorties_goal"
+          :options="{
+            sport: 'faire du sport',
+            food: 'achat de nourriture',
+            pets: 'promener le chien',
+            work: 'le travail'
+          }"
+          type="checkbox"
+          label="Sorties pour..."
+        />
+        <FormulateInput
+          name="delivery"
+          :options="{true: 'Oui', false: 'Non'}"
+          type="radio"
+          label="Livraison de nourriture à domicile"
+        />
+        <FormulateInput
+          name="routine"
+          :options="{true: 'Oui', false: 'Non'}"
+          type="radio"
+          label="Routine quotidienne (douche, habillement…)"
+        />
+        <FormulateInput
+          name="work"
+          type="number"
+          label="Nombres d'heures de travail"
+          min="0"
+          max="24"
+        />
+        <FormulateInput
+          name="school"
+          :options="{true: 'Oui', false: 'Non'}"
+          type="radio"
+          label="Ecole / devoirs des enfants"
+        />
+        <FormulateInput
+          name="extra_cleanup"
+          :options="{true: 'Oui', false: 'Non'}"
+          type="radio"
+          label="Etat du sommeil"
+        />
+        <FormulateInput
+          name="_gotcha"
+          type="text"
+          label="Vous avez fait du rien ? Ce champs doit rester vide"
+          style="display:none"
+        />
 
-      <FormulateErrors />
-      <FormulateInput
-        type="submit"
-        label="Valider"
-        class="form-submit text-center"
-      />
-    </FormulateForm>
+        <FormulateErrors />
+        <FormulateInput
+          type="submit"
+          label="Valider"
+        />
+      </FormulateForm>
+    </div>
   </div>
 </template>
 
 <script>
+import Header from '~/components/Header'
+
 export default {
-  components: {},
+  components: {
+    Header
+  },
   data () {
     return {
-      initial: false,
-      userId: null,
       // weather: '',
       // vivres: null,
       // collations: null,
@@ -196,10 +183,12 @@ export default {
       // extra_cleanup: null
     }
   },
-  mounted () {
-    if (localStorage.userId) {
-      this.userId = localStorage.userId
-      this.initial = false
+  computed: {
+    userId () {
+      return this.$store.state.user.id
+    },
+    initial () {
+      return !this.$store.state.user.id
     }
   },
   methods: {
@@ -217,10 +206,5 @@ export default {
 }
 </script>
 
-<style>
-/* purgecss start ignore */
-.formulate-input[data-classification='button'] button {
-  @apply flex justify-center w-full text-xl text-white text-center font-bold py-5 px-5 my-10 rounded;
-}
-/* purgecss end ignore */
+<style scoped>
 </style>

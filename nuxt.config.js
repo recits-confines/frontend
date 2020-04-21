@@ -5,6 +5,9 @@ export default {
   ** Headers of the page
   */
   head: {
+    htmlAttrs: {
+      lang: 'fr'
+    },
     title: 'Récits confinés',
     meta: [
       { charset: 'utf-8' },
@@ -18,7 +21,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#222b6e' },
   /*
   ** Global CSS
   */
@@ -29,7 +32,8 @@ export default {
   */
   plugins: [
     '~/plugins/formulate',
-    '~/plugins/loading'
+    '~/plugins/loading',
+    { src: '~/plugins/localStorage.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
