@@ -8,7 +8,4 @@
 </script>
 
 <style>
-html {
-  @apply bg-background;
-}
 </style>

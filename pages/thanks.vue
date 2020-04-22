@@ -1,20 +1,17 @@
 <template>
-  <div>
-    <Header title="Merci" />
-    <div class="text-center">
-      <h2 class="subtitle">
-        C’est tout pour aujourd’hui.
-      </h2>
-    </div>
-  </div>
+  <Page title="Merci">
+    <h2 class="subtitle">
+      C’est tout pour aujourd’hui.
+    </h2>
+  </Page>
 </template>
 
 <script>
-import Header from '~/components/Header'
+import Page from '@/components/Page'
 
 export default {
   components: {
-    Header
+    Page
   }
 }
 </script>

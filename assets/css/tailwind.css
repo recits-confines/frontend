@@ -10,9 +10,9 @@
 @import './forms.css';
 @import '~/node_modules/vue-loading-overlay/dist/vue-loading.css';
 
-.formulate-input .formulate-input-element {
-    max-width: 100%;
-    margin-bottom: .1em;
+html {
+    @apply bg-background;
+    font-size: 18px;
 }
 
 .page-enter-active, .page-leave-active {

@@ -1,10 +1,13 @@
 <template>
-  <div />
+  <Page title="Weekly" />
 </template>
 
 <script>
+import Page from '@/components/Page'
 export default {
-  components: {}
+  components: {
+    Page
+  }
 }
 </script>
 

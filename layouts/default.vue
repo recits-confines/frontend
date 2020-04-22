@@ -18,7 +18,4 @@ export default {
 </script>
 
 <style>
-html {
-  @apply bg-background;
-}
 </style>

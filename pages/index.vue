@@ -24,27 +24,37 @@
         </nuxt-link>
       </p>
       <hr class="border-secondary w-3 mx-auto my-2">
-      <div class="pt-5 flex flex-col">
+      <div
+        v-if="!!status"
+        class="pt-5 flex flex-col"
+      >
         <nuxt-link
-          v-if="initiated"
-          to="/daily"
-          class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
-        >
-          Continuer mon journal
-        </nuxt-link>
-        <nuxt-link
-          v-if="!initiated"
+          v-if="status === 'initial'"
           to="/initial"
           class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
         >
           Commencer mon journal
         </nuxt-link>
         <nuxt-link
-          v-if="!initiated"
+          v-if="status === 'initial'"
           to="/restart"
           class="bg-transparent hover:bg-main text-main hover:text-background py-2 px-6 rounded-full"
         >
           J’ai déjà un identifiant
+        </nuxt-link>
+        <nuxt-link
+          v-if="status === 'ready'"
+          to="/daily"
+          class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
+        >
+          Continuer mon journal
+        </nuxt-link>
+        <nuxt-link
+          v-if="status === 'done'"
+          to="/recap"
+          class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
+        >
+          Voir mon tableau de bord
         </nuxt-link>
       </div>
     </div>
@@ -60,8 +70,14 @@ export default {
     Logo
   },
   computed: {
-    initiated () {
-      return !!this.$store.state.user.id
+    status () {
+      if (!this.$store.state.user.id) {
+        return 'initial'
+      }
+      if (this.$db.get()) {
+        return 'done'
+      }
+      return 'ready'
     }
   }
 }

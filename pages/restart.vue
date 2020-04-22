@@ -1,34 +1,31 @@
 <template>
-  <div>
-    <Header title="Reprise" />
-    <div class="container mx-auto px-5 py-1 lg:px-64">
-      <FormulateForm
-        @submit="submitHandler"
-      >
-        <FormulateInput
-          v-model="userId"
-          name="userId"
-          type="text"
-          label="Identifiant"
-          help="Entrer votre identifiant unique à la première participation"
-          validation="required"
-        />
-        <FormulateErrors />
-        <FormulateInput
-          type="submit"
-          label="Valider"
-        />
-      </FormulateForm>
-    </div>
-  </div>
+  <Page title="Reprise">
+    <FormulateForm
+      @submit="submitHandler"
+    >
+      <FormulateInput
+        v-model="userId"
+        name="userId"
+        type="text"
+        label="Identifiant"
+        help="Entrer votre identifiant unique à la première participation"
+        validation="required"
+      />
+      <FormulateErrors />
+      <FormulateInput
+        type="submit"
+        label="Valider"
+      />
+    </FormulateForm>
+  </Page>
 </template>
 
 <script>
-import Header from '~/components/Header'
+import Page from '@/components/Page'
 
 export default {
   components: {
-    Header
+    Page
   },
   data () {
     return {

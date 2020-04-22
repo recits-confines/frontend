@@ -3,12 +3,10 @@
 .formulate-input .formulate-input-label {
     display: block;
     line-height: 1.5;
-    font-size: .9em;
     font-weight: 600;
-    margin-bottom: .1em; }
+    margin-bottom: .5em; }
 .formulate-input .formulate-input-element {
-    max-width: 20em;
-    margin-bottom: .1em; }
+    margin-bottom: .5em; }
 .formulate-input .formulate-input-help {
     color: #6d6d6d;
     font-size: .7em;
@@ -33,16 +31,15 @@
 .formulate-input[data-classification='text'] input {
     appearance: none;
     border-radius: unset;
-    border: 1px solid theme('colors.secondary');
+    border: 1px solid theme('colors.gray.500');
     box-sizing: border-box;
     background-color: theme('colors.white');
-    font-size: .9em;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     padding: .75em;
     display: block;
     width: 100%;
     font-weight: 400;
     line-height: 1.2em;
+    box-shadow: inset 0 0 5px 0 theme('colors.gray.500');
     margin: 0; }
 .formulate-input[data-classification='text'] input::placeholder {
     color: #a8a8a8;
@@ -110,7 +107,6 @@
     background: theme('colors.background');
     appearance: none;
     width: 100%;
-    font-size: 1em;
     padding: .5em 0; }
 .formulate-input[data-classification='slider'] input:focus {
     outline: 0; }
@@ -149,16 +145,15 @@
 .formulate-input[data-classification='textarea'] textarea {
     appearance: none;
     border-radius: unset;
-    border: 1px solid theme('colors.secondary');
+    border: 1px solid theme('colors.gray.500');
     box-sizing: border-box;
     background-color: theme('colors.white');
-    font-size: .9em;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     padding: .75em;
     display: block;
     width: 100%;
     font-weight: 400;
     line-height: 1.2em;
+    box-shadow: inset 0 0 5px 0 theme('colors.gray.500');
     margin: 0; }
 .formulate-input[data-classification='textarea'] textarea::placeholder {
     color: #a8a8a8;
@@ -167,12 +162,15 @@
     outline: 0;
     border: 1px solid theme('colors.main'); }
 .formulate-input[data-classification='button'] button {
-    @apply block bg-main uppercase font-black text-background py-5 px-6 my-4 mx-auto border border-transparent rounded-full
+    @apply block bg-main uppercase font-black text-background py-5 px-6 my-4 mx-auto border border-transparent rounded-full outline-none;
 }
 .formulate-input[data-classification='button'] button:focus,
 .formulate-input[data-classification='button'] button:active,
 .formulate-input[data-classification='button'] button:hover {
-    @apply bg-transparent text-main border-main;
+    @apply bg-transparent text-main border-main outline-none;
+}
+.formulate-input[data-classification='button'] button:focus {
+    @apply bg-gray-100;
 }
 .formulate-input[data-classification='button'] button[disabled] {
     background-color: theme('colors.secondary');
@@ -183,8 +181,8 @@
     content: '';
     width: 0;
     height: 0;
-    border: .3em solid theme('colors.white');
-    border-top-color: theme('colors.secondary');
+    border: .3em solid theme('colors.amin');
+    border-top-color: theme('colors.background');
     border-bottom-width: 0;
     top: 50%;
     margin-top: -.1em;
@@ -193,15 +191,13 @@
 .formulate-input[data-classification='select'] select {
     appearance: none;
     border-radius: unset;
-    border: 1px solid theme('colors.secondary');
+    border: unset;
     box-sizing: border-box;
-    background-color: theme('colors.white');
-    font-size: .9em;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: theme('colors.main');
+    color: theme('colors.background');
     padding: .75em;
     display: block;
     width: 100%;
-    font-weight: 400;
     line-height: 1.2em;
     margin: 0;
     padding-right: 2em; }
@@ -209,8 +205,7 @@
     color: #a8a8a8;
     line-height: normal; }
 .formulate-input[data-classification='select'] select:focus {
-    outline: 0;
-    border: 1px solid theme('colors.main'); }
+    outline: 0; }
 .formulate-input[data-classification='select'] select[data-placeholder-selected] {
     color: #a8a8a8; }
 .formulate-input[data-classification='box'] .formulate-input-wrapper {
@@ -229,6 +224,7 @@
     height: 1em;
     border-radius: .25em;
     border: 1px solid theme('colors.secondary');
+    background: theme('colors.white');
     position: relative; }
 .formulate-input[data-classification='box'] .formulate-input-element-decorator::before {
     content: '';
@@ -425,16 +421,15 @@
 .formulate-input[data-classification="file"] .formulate-files .formulate-file {
     appearance: none;
     border-radius: unset;
-    border: 1px solid theme('colors.secondary');
+    border: 1px solid theme('colors.gray.500');
     box-sizing: border-box;
     background-color: theme('colors.white');
-    font-size: .9em;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     padding: .75em;
     display: block;
     width: 100%;
     font-weight: 400;
     line-height: 1.2em;
+    box-shadow: inset 0 0 5px 0 theme('colors.gray.500');
     margin: 0;
     display: block;
     width: 100%;

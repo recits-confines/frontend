@@ -33,7 +33,8 @@ export default {
   plugins: [
     '~/plugins/formulate',
     '~/plugins/loading',
-    { src: '~/plugins/localStorage.js', ssr: false }
+    { src: '~/plugins/storage.js', ssr: false },
+    { src: '~/plugins/db.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
