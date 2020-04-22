@@ -74,9 +74,9 @@ export default {
       if (!this.$store.state.user.id) {
         return 'initial'
       }
-      if (this.$db.get()) {
-        return 'done'
-      }
+      // if (await this.$db.get()) {
+      //   return 'done'
+      // }
       return 'ready'
     }
   }
