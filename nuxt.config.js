@@ -33,6 +33,7 @@ export default {
   plugins: [
     '~/plugins/formulate',
     '~/plugins/loading',
+    { src: '~/plugins/swing.js', ssr: false },
     { src: '~/plugins/storage.js', ssr: false },
     { src: '~/plugins/db.js', ssr: false }
   ],

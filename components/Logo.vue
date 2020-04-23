@@ -11,8 +11,14 @@
 <script>
 export default {
   props: {
-    width: Number,
-    height: Number
+    width: {
+      type: Number,
+      default: 50
+    },
+    height: {
+      type: Number,
+      default: null
+    }
   }
 }
 </script>

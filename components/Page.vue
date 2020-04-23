@@ -15,7 +15,10 @@ export default {
     Header
   },
   props: {
-    title: String
+    title: {
+      type: String,
+      default: ''
+    }
   }
 }
 </script>
