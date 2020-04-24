@@ -92,54 +92,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .swing {
-  @apply mx-auto w-64;
-  position: relative;
+  @apply relative mx-auto w-64;
+  height: 30rem;
 }
-
-.card {
-  position: absolute;
-  display: none;
-  top: 0;
-  transition: padding-top 1s ease;
-}
-
-.card-inner {
-  @apply rounded-lg bg-white mx-auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  height: 25rem;
-  padding: 2rem;
-  transition: transform 1s ease;
-}
-
-.card:nth-last-of-type(4),
-.card:nth-last-of-type(3) {
-  display: flex;
-  padding-top: 0;
-}
-
-.card:nth-last-of-type(4) .card-inner {
-  transform: scale(0.7);
-}
-
-.card:nth-last-of-type(3) .card-inner {
-  transform: scale(0.8);
-}
-
-.card:nth-last-of-type(2) {
-  display: flex;
-  padding-top: 2rem;
-}
-
-.card:nth-last-of-type(2) .card-inner {
-  transform: scale(0.9);
-}
-
-.card:last-of-type {
-  display: flex;
-  padding-top: 4rem;
-}
-
-.card:last-of-type .card-inner {}
 </style>
