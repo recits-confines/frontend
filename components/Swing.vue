@@ -25,7 +25,7 @@ export default {
     this.stack = this.$swing.Stack(this.config || {})
     const children = Array.prototype.slice.call(this.$el.children)
     children.forEach((el) => {
-      this.cards.push(this.stack.createCard(el))
+      this.cards.push(this.stack.createCard(el, false))
     })
 
     // Observe changes in DOM
