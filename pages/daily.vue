@@ -68,6 +68,7 @@ export default {
         throwOutDistance: () => 500
       },
       answers: {},
+      current: {},
       cards: [
         {
           name: 'inquiet',
@@ -176,26 +177,29 @@ export default {
       obj[card.name] = null
       return obj
     }, {})
+    this.current = this.cards[this.cards.length - 1]
   },
   methods: {
     onThrowOut ({ target, throwDirection }) {
       switch (throwDirection) {
         case this.$swing.Direction.UP:
-          this.answers[target.__vue__.$props.name] = null
-          this.cards = this.cards.filter(card => card.relates !== target.__vue__.$props.name)
+          this.answers[this.current.name] = null
+          this.cards = this.cards.filter(card => card.relates !== this.current.name)
           break
         case this.$swing.Direction.LEFT:
-          this.answers[target.__vue__.$props.name] = false
-          this.cards = this.cards.filter(card => card.relates !== target.__vue__.$props.name)
+          this.answers[this.current.name] = false
+          this.cards = this.cards.filter(card => card.relates !== this.current.name)
           break
         case this.$swing.Direction.RIGHT:
-          this.answers[target.__vue__.$props.name] = true
+          this.answers[this.current.name] = true
       }
     },
-    onThrowOutEnd () {
+    async onThrowOutEnd () {
       this.cards.pop()
       if (this.cards.length < 1) {
-        this.$router.push('/thanks')
+        await this.submit()
+      } else {
+        this.current = this.cards[this.cards.length - 1]
       }
     },
     keySwing (event) {
@@ -221,6 +225,12 @@ export default {
     swingUp () {
       const cards = this.$refs.swing.cards
       cards[cards.length - 1].throwOut(0, 0, this.$swing.Direction.UP)
+    },
+    async submit () {
+      const loader = this.$loading.show()
+      await this.$db.add(this.answers)
+      this.$router.push('/thanks')
+      loader.hide()
     }
   }
 }
