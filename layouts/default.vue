@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavBar />
-    <div class="min-h-screen pb-20">
+    <div>
       <nuxt />
     </div>
   </div>

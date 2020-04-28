@@ -1,203 +1,226 @@
 <template>
-  <Page title="Les événements du jour">
-    <FormulateForm
-      @submit="submitHandler"
+  <div>
+    <div
+      v-shortkey="{up: ['arrowup'], right: ['arrowright'], left: ['arrowleft']}"
+      class="flex overflow-x-hidden items-center justify-center"
+      @shortkey="keySwing"
     >
-      <FormulateInput
-        name="weather"
-        type="select"
-        :options="{soleil: 'Soleil', nuages: 'Nuages', pluie: 'Pluie', orages: 'Orages'}"
-        label="Météo du jour"
-        placeholder="Sélectionner"
-      />
-      <FormulateInput
-        name="vivres"
-        type="range"
-        label="Quantité de vivres"
-        min="1"
-        max="10"
-        show-value="true"
-      />
-      <FormulateInput
-        name="collations"
-        type="number"
-        label="Nombres de collations dans la journée"
-        min="0"
-      />
-      <FormulateInput
-        name="moral_daily"
-        type="range"
-        label="Niveau du moral du jour"
-        min="1"
-        max="10"
-        show-value="true"
-      />
-      <FormulateInput
-        name="sante"
-        type="range"
-        label="Etat de danté physique"
-        min="1"
-        max="10"
-        show-value="true"
-      />
-      <FormulateInput
-        name="hygiene"
-        type="range"
-        label="Niveau d'hygiène du corps"
-        min="1"
-        max="10"
-        show-value="true"
-      />
-      <FormulateInput
-        name="relations"
-        type="range"
-        label="Etat des relations avec les co-confiné.e.s"
-        min="1"
-        max="10"
-        show-value="true"
-      />
-      <FormulateInput
-        name="opinion"
-        :options="{
-          self_health: 'Ma santé personnelle',
-          other_health: 'La santé de mes proches',
-          financial: 'Mes conditions financières',
-          criris: 'La situation sanitaire globale'
-        }"
-        type="checkbox"
-        label="Je m’inquiète pour..."
-      />
-      <FormulateInput
-        name="alcohol"
-        :options="{more: '+ (en augmentation)', stable: '= (stable)', less: '- (en diminution)', none: '0 (aucune)'}"
-        type="radio"
-        label="Consommation d’alcool"
-      />
-      <FormulateInput
-        name="tabaco"
-        :options="{more: '+ (en augmentation)', stable: '= (stable)', less: '- (en diminution)', none: '0 (aucune)'}"
-        type="radio"
-        label="Consommation de tabac"
-      />
-      <FormulateInput
-        name="sleep"
-        :options="{more: 'Bon', stable: 'Moyen', less: 'Mauvais'}"
-        type="radio"
-        label="Etat du sommeil"
-      />
-      <FormulateInput
-        v-model="sorties"
-        name="sorties"
-        type="number"
-        label="Nombres de sorties"
-        min="0"
-      />
-      <FormulateInput
-        v-if="sorties > 0"
-        name="sorties_goal"
-        :options="{
-          sport: 'faire du sport',
-          food: 'achat de nourriture',
-          pets: 'promener le chien',
-          work: 'le travail'
-        }"
-        type="checkbox"
-        label="Sorties pour..."
-      />
-      <FormulateInput
-        name="delivery"
-        :options="{true: 'Oui', false: 'Non'}"
-        type="radio"
-        label="Livraison de nourriture à domicile"
-      />
-      <FormulateInput
-        name="routine"
-        :options="{true: 'Oui', false: 'Non'}"
-        type="radio"
-        label="Routine quotidienne (douche, habillement…)"
-      />
-      <FormulateInput
-        name="work"
-        type="number"
-        label="Nombres d'heures de travail"
-        min="0"
-        max="24"
-      />
-      <FormulateInput
-        name="school"
-        :options="{true: 'Oui', false: 'Non'}"
-        type="radio"
-        label="Ecole / devoirs des enfants"
-      />
-      <FormulateInput
-        name="extra_cleanup"
-        :options="{true: 'Oui', false: 'Non'}"
-        type="radio"
-        label="Etat du sommeil"
-      />
-      <FormulateInput
-        name="_gotcha"
-        type="text"
-        label="Vous avez fait du rien ? Ce champs doit rester vide"
-        style="display:none"
-      />
-
-      <FormulateErrors />
-      <FormulateInput
-        type="submit"
-        label="Valider"
-      />
-    </FormulateForm>
-  </Page>
+      <button
+        class="flex-1 flex-grow-0 -mr-2 z-10 bg-indigo-800 text-white rounded-full p-5"
+        @click="swingLeft"
+      >
+        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 41.93 41.93">
+          <rect
+            width="55.02"
+            height="10.32"
+            x="-6.55"
+            y="15.8"
+            rx="5.16"
+            transform="rotate(-45 20.97 20.96)"
+          />
+          <rect
+            width="10.32"
+            height="55.02"
+            x="15.8"
+            y="-6.55"
+            rx="5.16"
+            transform="rotate(-45 20.97 20.96)"
+          />
+        </svg>
+      </button>
+      <Swing
+        ref="swing"
+        :config="config"
+        @throwout="onThrowOut"
+        @throwoutend="onThrowOutEnd"
+      >
+        <Card
+          v-for="card in cards"
+          :key="card.name"
+          v-bind="card"
+        />
+      </Swing>
+      <button
+        class="flex-1 flex-grow-0 -ml-2 z-10 bg-green-600 text-white rounded-full p-5"
+        @click="swingRight"
+      >
+        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 46.22 43.34">
+          <path d="M42.62.37C28.87 9 15.49 25.4 15.49 25.4a105.79 105.79 0 00-8.62-8 4.19 4.19 0 00-6 5.78A107.32 107.32 0 0112 41.05a4.13 4.13 0 005.54 1.85 4.08 4.08 0 001.81-1.77C27.94 25 35.35 16 45.66 3.85a2.34 2.34 0 00-3-3.48z" />
+        </svg>
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
-import Page from '@/components/Page'
+import Swing from '@/components/Swing'
+import Card from '@/components/Card'
 
 export default {
   components: {
-    Page
+    Swing,
+    Card
   },
   data () {
     return {
-      // weather: '',
-      // vivres: null,
-      // collations: null,
-      // moral_daily: null,
-      // sante: null,
-      // hygiene: null,
-      // relations: null,
-      // opinion: [],
-      // alcohol: null,
-      // tabaco: null,
-      // sleep: null,
-      sorties: null
-      // sorties_goal: [],
-      // delivery: null,
-      // routine: null,
-      // work: null,
-      // school: null,
-      // extra_cleanup: null
+      config: {
+        allowedDirections: [],
+        throwOutDistance: () => 500
+      },
+      answers: {},
+      cards: [
+        {
+          name: 'inquiet',
+          description: 'Je suis inquiet',
+          icon: '🤞🏼'
+        },
+        {
+          name: 'inquietProches',
+          description: 'Pour la santé de mes proches',
+          icon: '👨‍👩‍👧‍👦',
+          relates: 'inquiet'
+        },
+        {
+          name: 'inquietFinances',
+          description: 'Pour mes conditions financières',
+          icon: '💵',
+          relates: 'inquiet'
+        },
+        {
+          name: 'inquietSanitaire',
+          description: 'Pour la situation sanitaire globale',
+          icon: '😷',
+          relates: 'inquiet'
+        },
+        {
+          name: 'alcool',
+          description: 'J’ai consommé de l’alcool',
+          icon: '🍻'
+        },
+        {
+          name: 'sommeil',
+          description: 'Cette nuit, j’ai bien dormi',
+          icon: '🛏'
+        },
+        {
+          name: 'sortie',
+          description: 'Je suis sorti',
+          icon: '🌳'
+        },
+        {
+          name: 'sortieSport',
+          description: 'Pour faire du sport',
+          icon: '🏃',
+          relates: 'sortie'
+        },
+        {
+          name: 'sortieCourses',
+          description: 'Pour acheter des provision',
+          icon: '🛒',
+          relates: 'sortie'
+        },
+        {
+          name: 'sortieChien',
+          description: 'Pour promener le chien',
+          icon: '🐶',
+          relates: 'sortie'
+        },
+        {
+          name: 'sortieTravail',
+          description: 'Pour aller travailler',
+          icon: '🚗',
+          relates: 'sortie'
+        },
+        {
+          name: 'sortieAutre',
+          description: 'Pour une autre raison',
+          icon: '🏙',
+          relates: 'sortie'
+        },
+        {
+          name: 'livraison',
+          description: 'J’ai été livré à domicile',
+          icon: '📦'
+        },
+        {
+          name: 'routineDouche',
+          description: 'Je me suis douché/habillé',
+          icon: '🚿'
+        },
+        {
+          name: 'devoir',
+          description: 'J’ai aidé aux devoirs des enfants',
+          icon: '📚'
+        },
+        {
+          name: 'menageBrico',
+          description: 'J’ai bricolé ou fais le ménage',
+          icon: '🧽'
+        },
+        {
+          name: 'sportDomicile',
+          description: 'J’ai fait du sport à la maison',
+          icon: '🤸'
+        }
+      ].reverse()
     }
   },
-  computed: {
-    userId () {
-      return this.$store.state.user.id
-    },
-    initial () {
-      return !this.$store.state.user.id
-    }
+  beforeMount () {
+    this.config.allowedDirections = [
+      this.$swing.Direction.UP,
+      // this.$swing.Direction.DOWN,
+      this.$swing.Direction.LEFT,
+      this.$swing.Direction.RIGHT
+    ]
+    this.answers = this.cards.reduce((obj, card) => {
+      obj[card.name] = null
+      return obj
+    }, {})
   },
   methods: {
-    async submitHandler (data) {
-      const loader = this.$loading.show()
-      await this.$db.add(data)
-      data._subject = 'Récits confinés - Rapport journée'
-      if (!data._gotcha) {
-        await this.$axios.$post('https://formspree.io/mnqbkgyr', data)
+    onThrowOut ({ target, throwDirection }) {
+      switch (throwDirection) {
+        case this.$swing.Direction.UP:
+          this.answers[target.__vue__.$props.name] = null
+          this.cards = this.cards.filter(card => card.relates !== target.__vue__.$props.name)
+          break
+        case this.$swing.Direction.LEFT:
+          this.answers[target.__vue__.$props.name] = false
+          this.cards = this.cards.filter(card => card.relates !== target.__vue__.$props.name)
+          break
+        case this.$swing.Direction.RIGHT:
+          this.answers[target.__vue__.$props.name] = true
       }
-      this.$router.push('/thanks')
-      loader.hide()
+    },
+    onThrowOutEnd () {
+      this.cards.pop()
+      if (this.cards.length < 1) {
+        this.$router.push('/thanks')
+      }
+    },
+    keySwing (event) {
+      switch (event.srcKey) {
+        case 'up':
+          this.swingUp()
+          break
+        case 'right':
+          this.swingRight()
+          break
+        case 'left':
+          this.swingLeft()
+      }
+    },
+    swingRight () {
+      const cards = this.$refs.swing.cards
+      cards[cards.length - 1].throwOut(0, 0, this.$swing.Direction.RIGHT)
+    },
+    swingLeft () {
+      const cards = this.$refs.swing.cards
+      cards[cards.length - 1].throwOut(0, 0, this.$swing.Direction.LEFT)
+    },
+    swingUp () {
+      const cards = this.$refs.swing.cards
+      cards[cards.length - 1].throwOut(0, 0, this.$swing.Direction.UP)
     }
   }
 }

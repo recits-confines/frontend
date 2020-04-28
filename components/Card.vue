@@ -2,24 +2,53 @@
   <div class="card">
     <div class="card-inner">
       <div class="card-content">
-        <slot />
+        <slot>
+          <p class="text-xs font-semibold">
+            {{ context }}
+          </p>
+          <p class="text-xl font-light my-2">
+            {{ description }}
+          </p>
+          <p class="text-6xl">
+            {{ icon }}
+          </p>
+        </slot>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
+export default {
+  props: {
+    name: {
+      type: String,
+      default: ''
+    },
+    context: {
+      type: String,
+      default: 'Aujourd\'hui,'
+    },
+    description: {
+      type: String,
+      default: ''
+    },
+    icon: {
+      type: String,
+      default: ''
+    }
+  }
+}
 </script>
 
 <style scoped>
 .card {
-  @apply hidden absolute top-0 duration-1000 ease-out;
+  @apply hidden absolute top-0 w-full duration-1000 ease-out;
   transition-property: padding-top;
 }
 
 .card-inner {
-  @apply flex flex-col rounded-lg bg-white mx-auto p-10 transition-transform duration-1000 ease-out;
+  @apply flex flex-col w-full rounded-lg bg-white mx-auto p-10 transition-transform duration-1000 ease-out;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   height: 24rem;
 }

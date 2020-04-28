@@ -33,9 +33,10 @@ export default {
   plugins: [
     '~/plugins/formulate',
     '~/plugins/loading',
-    { src: '~/plugins/swing.js', ssr: false },
-    { src: '~/plugins/storage.js', ssr: false },
-    { src: '~/plugins/db.js', ssr: false }
+    { src: '~/plugins/shortkey', ssr: false },
+    { src: '~/plugins/swing', ssr: false },
+    { src: '~/plugins/storage', ssr: false },
+    { src: '~/plugins/db', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -61,6 +62,17 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+  },
+  /*
+  ** PWA module configuration
+  ** See https://pwa.nuxtjs.org/
+  */
+  pwa: {
+    workbox: {
+      importScripts: [
+        'notifications.js'
+      ]
+    }
   },
   /*
   ** Sentry module configuration

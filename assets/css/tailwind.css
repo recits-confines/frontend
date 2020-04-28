@@ -11,7 +11,7 @@
 @import '~/node_modules/vue-loading-overlay/dist/vue-loading.css';
 
 html {
-    @apply bg-background;
+    @apply min-h-screen bg-background;
     font-size: 18px;
 }
 

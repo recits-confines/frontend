@@ -47,15 +47,15 @@ export default {
         }
 
         const card = this.stack.getCard(el)
-        if (card == null) {
-          this.cards.push(this.stack.createCard(el))
+        if (card === null) {
+          this.cards.push(this.stack.createCard(el, false))
         }
       })
 
       // Remove the card if the element is gone
       removedElements.forEach((el) => {
         const card = this.stack.getCard(el)
-        if (card != null) {
+        if (card !== null) {
           this.cards.splice(this.cards.indexOf(card), 1)
           this.stack.destroyCard(card)
         }
@@ -94,7 +94,7 @@ export default {
 
 <style scoped>
 .swing {
-  @apply relative mx-auto w-64;
+  @apply relative flex-shrink-0 w-64;
   height: 30rem;
 }
 </style>

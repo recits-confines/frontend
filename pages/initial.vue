@@ -1,6 +1,7 @@
 <template>
   <Page title="Mon humeur initiale">
     <FormulateForm
+      class="pb-20"
       @submit="submitHandler"
     >
       <FormulateInput
