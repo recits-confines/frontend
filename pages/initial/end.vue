@@ -1,20 +1,17 @@
 <template>
-  <Page title="Merci">
+  <Page>
     <div class="flex flex-col text-center items-center justify-center">
       <h2 class="subtitle font-medium">
-        C’est tout pour aujourd’hui.
+        C’est parfait !
       </h2>
       <p class="my-5">
-        Maintenant, je peux visualiser mon historique de confinement.
+        Maintenant, je peux commencer mon journal de confinement.
       </p>
       <nuxt-link
-        to="/dashboard"
-        class="w-4/12"
+        to="/daily"
+        class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
       >
-        <img
-          src="@/static/images/history.svg"
-          alt="History"
-        >
+        C’est parti !
       </nuxt-link>
     </div>
   </Page>

@@ -191,12 +191,12 @@ export default {
   methods: {
     async submitHandler (data) {
       const loader = this.$loading.show()
-      await this.$db.add(data)
+      await this.$db.daily.add(data)
       data._subject = 'Récits confinés - Rapport journée'
       if (!data._gotcha) {
         // await this.$axios.$post('https://formspree.io/mnqbkgyr', data)
       }
-      this.$router.push('/thanks')
+      this.$router.push('/daily/end')
       loader.hide()
     }
   }

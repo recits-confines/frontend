@@ -2,22 +2,22 @@
   <Page title="Mon humeur initiale">
     <FormulateForm
       class="pb-20"
-      @submit="submitHandler"
+      @submit="submit"
     >
       <FormulateInput
-        name="space_description"
+        v-model="spaceDescription"
         type="textarea"
         label="Description de l'espace de confinement"
         help="Type, surface, état du logement, environnement extérieur, chez qui ?"
       />
       <FormulateInput
-        name="people"
+        v-model="people"
         type="textarea"
         label="Personnes confinées avec vous"
         help="Nombre, type de relation, âge"
       />
       <FormulateInput
-        name="moral"
+        v-model="moral"
         type="range"
         label="Moral inital"
         min="1"
@@ -25,22 +25,16 @@
         show-value="true"
       />
       <FormulateInput
-        name="provision_quantity"
+        v-model="provisionQuantity"
         type="number"
         label="Provisions initiales estimée"
         help="En jours"
         min="0"
       />
       <FormulateInput
-        name="provision_description"
+        v-model="provisionDescription"
         type="textarea"
         label="Vous avez fait des stocks ? Si oui de quoi en priorité ?"
-      />
-      <FormulateInput
-        name="_gotcha"
-        type="text"
-        label="Vous avez fait du rien ? Ce champs doit rester vide"
-        style="display:none"
       />
       <img
         class="w-4/12 mx-auto my-10"
@@ -63,16 +57,20 @@ export default {
   components: {
     Page
   },
+  data () {
+    return {
+      spaceDescription: null,
+      people: null,
+      moral: null,
+      provisionQuantity: null,
+      provisionDescription: null
+    }
+  },
   methods: {
-    async submitHandler (data) {
+    submit (data) {
       const loader = this.$loading.show()
       this.$store.commit('user/init', data)
-      data.userId = this.$store.state.user.id
-      data._subject = 'Récits confinés - Inscription'
-      if (!data._gotcha) {
-        await this.$axios.$post('https://formspree.io/mnqbkgyr', data)
-      }
-      this.$router.push('/daily')
+      this.$router.push('/initial/end')
       loader.hide()
     }
   }

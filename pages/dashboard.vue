@@ -1,11 +1,11 @@
 <template>
   <Page title="Tableau de bord">
-    <ul>
+    <ul class="list-disc list-inside">
       <li
         v-for="date in dates"
         :key="date.toString()"
       >
-        {{ new Intl.DateTimeFormat(undefined, { dateStyle: 'full' }).format(date) }}
+        Le <time>{{ new Intl.DateTimeFormat(undefined, { dateStyle: 'full' }).format(date) }}</time>
       </li>
     </ul>
   </Page>
@@ -24,7 +24,7 @@ export default {
     }
   },
   async mounted () {
-    this.dates = await this.$db.keys()
+    this.dates = (await this.$db.daily.keys()).reverse()
   }
 }
 </script>

@@ -6,7 +6,7 @@
           <p class="text-xs font-semibold">
             {{ context }}
           </p>
-          <p class="text-xl font-light my-2">
+          <p class="text-2xl font-light my-2">
             {{ description }}
           </p>
           <p class="text-6xl">

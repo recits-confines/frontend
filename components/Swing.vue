@@ -1,5 +1,5 @@
 <template>
-  <div class="swing">
+  <div class="relative flex-shrink-0 w-10/12 sm:w-64 h-30">
     <slot />
   </div>
 </template>
@@ -93,8 +93,7 @@ export default {
 </script>
 
 <style scoped>
-.swing {
-  @apply relative flex-shrink-0 w-64;
+.h-30 {
   height: 30rem;
 }
 </style>

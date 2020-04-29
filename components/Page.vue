@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <Header :title="title" />
-    <div class="container mx-auto px-5 py-1 lg:px-64">
+  <div class="flex-grow flex flex-col">
+    <Header v-if="title" :title="title" />
+    <div class="flex-grow flex flex-col justify-center container mx-auto px-5 py-1 lg:px-64">
       <slot />
     </div>
   </div>

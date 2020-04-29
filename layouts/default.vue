@@ -1,17 +1,20 @@
 <template>
-  <div>
+  <div class="flex flex-col justify-between min-h-screen">
     <NavBar />
-    <div>
+    <div class="flex-grow flex flex-col justify-center overflow-hidden">
       <nuxt />
     </div>
+    <AppBar />
   </div>
 </template>
 
 <script>
-import NavBar from '~/components/NavBar.vue'
+import NavBar from '@/components/NavBar'
+import AppBar from '@/components/AppBar'
 
 export default {
   components: {
+    AppBar,
     NavBar
   }
 }
