@@ -41,6 +41,9 @@ Vue.use({
         },
         async keys () {
           return (await Vue.db).getAllKeys('daily')
+        },
+        async getAll () {
+          return (await Vue.db).getAll('daily')
         }
       },
       weekly: {

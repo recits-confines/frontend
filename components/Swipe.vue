@@ -9,7 +9,24 @@
         class="flex-1 flex-grow-0 -mr-5 sm:mr-5 z-10 bg-indigo-800 text-white focus:outline-none rounded-full py-10 pl-16 pr-4 sm:p-6"
         @click="swingLeft"
       >
-        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 41.93 41.93">
+        <svg
+          v-if="carrousel"
+          class="fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 46.22 43.34"
+        >
+          <path d="M42.62.37C28.87 9 15.49 25.4 15.49 25.4a105.79 105.79 0 00-8.62-8 4.19 4.19 0 00-6 5.78A107.32 107.32 0 0112 41.05a4.13 4.13 0 005.54 1.85 4.08 4.08 0 001.81-1.77C27.94 25 35.35 16 45.66 3.85a2.34 2.34 0 00-3-3.48z" />
+        </svg>
+        <svg
+          v-else
+          class="fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 41.93 41.93"
+        >
           <rect
             width="55.02"
             height="10.32"
@@ -44,17 +61,39 @@
         class="flex-1 flex-grow-0 -ml-5 sm:ml-5 z-10 bg-green-600 text-white focus:outline-none rounded-full py-10 pr-16 pl-4 sm:p-6"
         @click="swingRight"
       >
-        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 46.22 43.34">
+        <svg
+          v-if="carrousel"
+          class="fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 46.22 43.34"
+        >
+          <path d="M42.62.37C28.87 9 15.49 25.4 15.49 25.4a105.79 105.79 0 00-8.62-8 4.19 4.19 0 00-6 5.78A107.32 107.32 0 0112 41.05a4.13 4.13 0 005.54 1.85 4.08 4.08 0 001.81-1.77C27.94 25 35.35 16 45.66 3.85a2.34 2.34 0 00-3-3.48z" />
+        </svg>
+        <svg
+          v-else
+          class="fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 46.22 43.34"
+        >
           <path d="M42.62.37C28.87 9 15.49 25.4 15.49 25.4a105.79 105.79 0 00-8.62-8 4.19 4.19 0 00-6 5.78A107.32 107.32 0 0112 41.05a4.13 4.13 0 005.54 1.85 4.08 4.08 0 001.81-1.77C27.94 25 35.35 16 45.66 3.85a2.34 2.34 0 00-3-3.48z" />
         </svg>
       </button>
     </div>
     <div class="flex justify-center py-5">
       <div
-        v-for="i in steps"
-        :key="i"
+        v-for="c1 in previous"
+        :key="c1.name"
+        class="w-2 h-2 m-1 rounded-full bg-secondary"
+      />
+      <div
+        v-for="(c2, index) in cards"
+        :key="c2.name"
         class="w-2 h-2 m-1 rounded-full"
-        :class="{ 'bg-white': i === position, 'bg-secondary': i !== position, }"
+        :class="{ 'bg-white': index === 0, 'bg-secondary': index !== 0 }"
       />
     </div>
   </div>
@@ -73,6 +112,10 @@ export default {
     cardList: {
       type: Array,
       default: () => []
+    },
+    carrousel: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -90,8 +133,7 @@ export default {
       current: {},
       answers: {},
       cards: this.cardList,
-      steps: [...Array(this.cardList.length).keys()],
-      position: 0
+      previous: []
     }
   },
   beforeMount () {
@@ -123,12 +165,16 @@ export default {
       }
     },
     onThrowOutEnd () {
-      this.cards.pop()
+      this.previous.push(this.cards.pop())
       if (this.cards.length < 1) {
-        this.$emit('submit', this.answers)
+        if (this.carrousel) {
+          this.cards = this.cardList
+          this.previous = []
+        } else {
+          this.$emit('submit', this.answers)
+        }
       } else {
         this.current = this.cards[this.cards.length - 1]
-        this.position = this.steps.length - this.cards.length
       }
     },
     keySwing (event) {
@@ -149,7 +195,13 @@ export default {
     },
     swingLeft () {
       const cards = this.$refs.swing.cards
-      cards[cards.length - 1].throwOut(0, 0, this.$swing.Direction.LEFT)
+      if (this.carrousel) {
+        if (this.previous.length > 0) {
+          this.cards.push(this.previous.pop())
+        }
+      } else {
+        cards[cards.length - 1].throwOut(0, 0, this.$swing.Direction.LEFT)
+      }
     },
     swingUp () {
       const cards = this.$refs.swing.cards

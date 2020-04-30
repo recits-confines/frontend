@@ -16,6 +16,12 @@ export default {
     return {
       cards: [
         {
+          name: 'training',
+          context: 'Pour répondre',
+          description: 'Oui en glissant à droite. Non à gauche.',
+          icon: '↔️'
+        },
+        {
           name: 'inquiet',
           description: 'Je suis inquiet',
           icon: '🤞🏼'
