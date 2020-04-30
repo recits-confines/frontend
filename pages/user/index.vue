@@ -11,22 +11,22 @@
         </nuxt-link>
       </p>
       <nuxt-link
-        to="/profile/edit"
-        class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
-      >
-        Modifier mon profil
-      </nuxt-link>
-      <nuxt-link
-        to="/profile/stories/create"
+        to="/user/stories/create"
         class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
       >
         Ajouter un anecdote
       </nuxt-link>
       <nuxt-link
-        to="/profile/stories"
+        to="/user/stories"
         class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
       >
         Visualiser mes anecdotes
+      </nuxt-link>
+      <nuxt-link
+        to="/user/edit"
+        class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
+      >
+        Modifier mon profil
       </nuxt-link>
     </div>
   </Page>

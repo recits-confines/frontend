@@ -45,7 +45,7 @@ export default {
         title: this.title,
         body: this.body
       })
-      this.$router.push('/profile/stories')
+      this.$router.push('/user/stories')
       loader.hide()
     }
   }

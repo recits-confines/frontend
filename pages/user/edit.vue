@@ -2,22 +2,23 @@
   <Page title="Mon humeur initiale">
     <FormulateForm
       class="pb-20"
+      :values="values"
       @submit="submit"
     >
       <FormulateInput
-        v-model="spaceDescription"
+        name="space"
         type="textarea"
         label="Description de l'espace de confinement"
         help="Type, surface, état du logement, environnement extérieur, chez qui ?"
       />
       <FormulateInput
-        v-model="people"
+        name="people.body"
         type="textarea"
         label="Personnes confinées avec vous"
         help="Nombre, type de relation, âge"
       />
       <FormulateInput
-        v-model="moral"
+        name="moral"
         type="range"
         label="Moral inital"
         min="1"
@@ -25,14 +26,14 @@
         show-value="true"
       />
       <FormulateInput
-        v-model="provisionQuantity"
+        name="provisions.number"
         type="number"
         label="Provisions initiales estimée"
         help="En jours"
         min="0"
       />
       <FormulateInput
-        v-model="provisionDescription"
+        name="provisions.body"
         type="textarea"
         label="Vous avez fait des stocks ? Si oui de quoi en priorité ?"
       />
@@ -59,18 +60,14 @@ export default {
   },
   data () {
     return {
-      spaceDescription: null,
-      people: null,
-      moral: null,
-      provisionQuantity: null,
-      provisionDescription: null
+      values: this.$store.state.user
     }
   },
   methods: {
     submit (data) {
       const loader = this.$loading.show()
       this.$store.commit('user/init', data)
-      this.$router.push('/initial/end')
+      this.$router.push('/user/end')
       loader.hide()
     }
   }

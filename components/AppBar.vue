@@ -5,7 +5,7 @@
         <nuxt-link
           class="text-center block border-b-4 text-main py-4 px-2"
           active-class="border-main"
-          to="/profile"
+          to="/user"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.63 79.23" class="fill-current w-10 h-10 mx-auto">
             <path d="M36.32 39.86a19.93 19.93 0 10-19.94-19.93 20 20 0 0019.94 19.93zm0-31.57a11.64 11.64 0 11-11.64 11.64A11.64 11.64 0 0136.32 8.3zM8.3 79.23a28 28 0 1156 0h8.3a36.32 36.32 0 00-72.6 0z" />

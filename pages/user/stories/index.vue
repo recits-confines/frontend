@@ -16,7 +16,7 @@
       </p>
     </div>
     <nuxt-link
-      to="/profile/stories/create"
+      to="/user/stories/create"
       class="bg-main hover:bg-transparent uppercase font-black text-center text-background hover:text-main py-2 px-6 my-4 border border-transparent hover:border-main rounded-full"
     >
       + Nouvelle anecdote

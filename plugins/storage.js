@@ -4,7 +4,8 @@ export default ({ store }) => {
   window.onNuxtReady(() => {
     createPersistedState({
       key: 'user',
-      paths: ['user']
+      paths: ['user'],
+      fetchBeforeUse: true
     })(store)
     createPersistedState({
       key: 'day',
