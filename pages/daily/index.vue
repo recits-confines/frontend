@@ -188,6 +188,11 @@ export default {
       return !this.$store.state.user.id
     }
   },
+  async beforeMount () {
+    if (await this.$db.daily.get()) {
+      this.$router.push('/daily/end')
+    }
+  },
   methods: {
     async submitHandler (data) {
       await this.$store.commit('day/init')
