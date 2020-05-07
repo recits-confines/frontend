@@ -1,0 +1,130 @@
+[
+  {
+    "name": "training",
+    "context": "Pour répondre",
+    "description": "Oui en glissant à droite. Non à gauche.",
+    "icon": "↔"
+  },
+  {
+    "name": "inquiet",
+    "description": "Je suis inquiet",
+    "icon": "😕"
+  },
+  {
+    "name": "inquietProches",
+    "description": "Inquiet pour la santé de mes proches",
+    "icon": "👨‍👩‍👧‍👦",
+    "relates": "inquiet"
+  },
+  {
+    "name": "inquietFinances",
+    "description": "Inquiet pour mes conditions financières",
+    "icon": "💰",
+    "relates": "inquiet"
+  },
+  {
+    "name": "inquietSanitaire",
+    "description": "Inquiet pour la situation sanitaire",
+    "icon": "😷",
+    "relates": "inquiet"
+  },
+  {
+    "name": "sommeil",
+    "description": "J’ai bien dormi",
+    "icon": "😴"
+  },
+  {
+    "name": "alcohol",
+    "description": "J’ai consommé de l'alcool",
+    "icon": "🍷"
+  },
+  {
+    "name": "alcoholPlus",
+    "description": "J’en ai consommé plus qu'hier",
+    "icon": "🍷🍷",
+    "relates": "alcohol"
+  },
+  {
+    "name": "tobacco",
+    "description": "J’ai consommé du tabac",
+    "icon": "🚬"
+  },
+  {
+    "name": "sortie",
+    "description": "Je suis sorti",
+    "icon": "🌳"
+  },
+  {
+    "name": "sortieSport",
+    "description": "Pour faire du sport",
+    "icon": "🏃",
+    "relates": "sortie"
+  },
+  {
+    "name": "sortieCourses",
+    "description": "Pour acheter de la nourriture",
+    "icon": "🍞",
+    "relates": "sortie"
+  },
+  {
+    "name": "sortieChien",
+    "description": "Pour promener le chien",
+    "icon": "🐶",
+    "relates": "sortie"
+  },
+  {
+    "name": "sortieTravail",
+    "description": "Pour aller travailler",
+    "icon": "💼",
+    "relates": "sortie"
+  },
+  {
+    "name": "sortieAutre",
+    "description": "Pour une autre raison",
+    "icon": "🏙",
+    "relates": "sortie"
+  },
+  {
+    "name": "livraison",
+    "description": "J’ai fait des achats en ligne",
+    "icon": "🚚"
+  },
+  {
+    "name": "livraisonNourriture",
+    "description": "Des provisions de nourriture",
+    "icon": "🍅",
+    "relates": "livraison"
+  },
+  {
+    "name": "livraisonAutre",
+    "description": "Autre chose que de la nourriture",
+    "icon": "📦",
+    "relates": "livraison"
+  },
+  {
+    "name": "livraisonOnline",
+    "description": "J’achète plus en ligne qu’avant",
+    "icon": "💳",
+    "relates": "livraison"
+  },
+  {
+    "name": "routineDouche",
+    "description": "Je me suis douché/habillé",
+    "icon": "🚿"
+  },
+  {
+    "name": "devoir",
+    "description": "J’ai aidé aux devoirs des enfants",
+    "icon": "📚"
+  },
+  {
+    "name": "menageBrico",
+    "description": "J’ai bricolé ou fais le ménage",
+    "icon": "🔧"
+  },
+  {
+    "name": "sportDomicile",
+    "description": "J’ai fait du sport à la maison",
+    "icon": "🏋"
+  }
+]
