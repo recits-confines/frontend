@@ -1,5 +1,5 @@
 <template>
-  <Page title="Tableau de bord">
+  <Page title="Mon historique confirmé">
     <div
       class="bg-white rounded-lg shadow-lg p-10 min-h-5 my-4"
     >
