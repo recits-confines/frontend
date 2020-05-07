@@ -6,36 +6,36 @@
       @submit="submit"
     >
       <FormulateInput
-        name="space"
+        name="espaceConf"
         type="textarea"
         label="Description de l'espace de confinement"
         help="Type, surface, état du logement, environnement extérieur, chez qui ?"
       />
       <FormulateInput
-        name="people.body"
+        name="persConf"
         type="textarea"
         label="Personnes confinées avec vous"
-        help="Nombre, type de relation, âge"
+        help="Nombre, lien, âge"
       />
       <FormulateInput
-        name="moral"
+        name="moralInit"
         type="range"
-        label="Moral inital"
+        label="Moral initial"
         min="1"
         max="10"
         show-value="true"
       />
       <FormulateInput
-        name="provisions.number"
+        name="stockInit"
         type="number"
         label="Provisions initiales estimée"
         help="En jours"
         min="0"
       />
       <FormulateInput
-        name="provisions.body"
+        name="stockInitD"
         type="textarea"
-        label="Vous avez fait des stocks ? Si oui de quoi en priorité ?"
+        label="Avez-vous fait des stocks ? qu’avez-vous acheté en priorité ?"
       />
       <img
         class="w-4/12 mx-auto my-10"

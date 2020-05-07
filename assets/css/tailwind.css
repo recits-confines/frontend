@@ -12,6 +12,7 @@
 
 html {
     @apply min-h-screen bg-background;
+    overscroll-behavior: contain;
     font-size: 18px;
 }
 

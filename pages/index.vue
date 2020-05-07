@@ -30,7 +30,7 @@
       >
         <nuxt-link
           v-if="status === 'initial'"
-          to="/user/edit"
+          to="/user/init"
           class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
         >
           Commencer mon journal

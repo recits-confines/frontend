@@ -1,5 +1,5 @@
 <template>
-  <Page title="Weekly" />
+  <Page title="Les événements de la semaine" />
 </template>
 
 <script>
