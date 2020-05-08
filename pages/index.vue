@@ -25,8 +25,7 @@
       </p>
       <hr class="border-secondary w-3 mx-auto my-2">
       <div
-        class="pt-5 flex flex-col transition-opacity duration-1000 ease-out"
-        :class="{ 'opacity-0': !loaded }"
+        class="pt-5 flex flex-col"
       >
         <nuxt-link
           v-if="initial"
