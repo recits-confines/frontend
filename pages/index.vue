@@ -26,6 +26,7 @@
       <hr class="border-secondary w-3 mx-auto my-2">
       <div
         class="pt-5 flex flex-col"
+        @click="onInit"
       >
         <nuxt-link
           v-if="initial"
@@ -42,19 +43,20 @@
           J’ai déjà un identifiant
         </nuxt-link>
         <nuxt-link
-          v-if="!initial"
+          v-else-if="dailyToday"
+          to="/dashboard"
+          class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
+        >
+          Voir mon tableau de bord
+        </nuxt-link>
+        <nuxt-link
+          v-else
           to="/daily"
           class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
         >
           Continuer mon journal
         </nuxt-link>
-        <!--        <nuxt-link-->
-        <!--          v-if="status === 'done'"-->
-        <!--          to="/dashboard"-->
-        <!--          class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"-->
-        <!--        >-->
-        <!--          Voir mon tableau de bord-->
-        <!--        </nuxt-link>-->
+
       </div>
     </div>
   </div>
@@ -72,8 +74,14 @@ export default {
   computed: {
     ...mapState({
       initial: state => !state.user.id,
+      dailyToday: state => state.user.lastDaily === new Date((new Date()).toDateString()),
       loaded: state => state.isLoaded
     })
+  },
+  methods: {
+    onInit () {
+      this.$store.commit('loaded')
+    }
   }
 }
 </script>

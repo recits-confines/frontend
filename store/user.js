@@ -1,5 +1,6 @@
 export const state = () => ({
   id: null,
+  lastDaily: null,
   debutCarnet: null,
   space: null,
   // people: {
@@ -30,7 +31,7 @@ export const mutations = {
     }
     state.id = userId
   },
-  update (state, userId) {
-    // tt
+  submitDaily (state) {
+    state.lastDaily = new Date((new Date()).toDateString())
   }
 }

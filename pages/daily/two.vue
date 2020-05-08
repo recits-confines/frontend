@@ -27,6 +27,7 @@ export default {
     async onSubmit (answers) {
       const loader = this.$loading.show()
       await this.$db.daily.add(answers)
+      this.$store.commit('user/submitDaily')
       this.$router.push('/daily/end')
       loader.hide()
     }
