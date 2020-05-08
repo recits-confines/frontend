@@ -4,7 +4,7 @@
     <div class="flex-grow flex flex-col justify-center overflow-hidden">
       <nuxt />
     </div>
-    <AppBar v-if="initiated"/>
+    <AppBar v-if="initiated" />
   </div>
 </template>
 

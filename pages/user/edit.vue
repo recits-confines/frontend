@@ -20,10 +20,8 @@
       />
       <FormulateInput
         name="moralInit"
-        type="range"
+        type="emojirange"
         label="Moral initial"
-        min="1"
-        max="10"
         show-value="true"
       />
       <FormulateInput

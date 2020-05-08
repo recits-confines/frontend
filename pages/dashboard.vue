@@ -34,11 +34,21 @@
       <div v-if="date.sortie">
         <p>Je suis sorti pour :</p>
         <ul class="list-disc list-inside">
-          <li v-if="date.sortieSport">faire du sport</li>
-          <li v-if="date.sortieCourses">acheter de la nourriture</li>
-          <li v-if="date.sortieChien">promener le chien</li>
-          <li v-if="date.sortieTravail">aller travailler</li>
-          <li v-if="date.sortieAutre">une autre raison</li>
+          <li v-if="date.sortieSport">
+            faire du sport
+          </li>
+          <li v-if="date.sortieCourses">
+            acheter de la nourriture
+          </li>
+          <li v-if="date.sortieChien">
+            promener le chien
+          </li>
+          <li v-if="date.sortieTravail">
+            aller travailler
+          </li>
+          <li v-if="date.sortieAutre">
+            une autre raison
+          </li>
         </ul>
       </div>
       <p v-else>

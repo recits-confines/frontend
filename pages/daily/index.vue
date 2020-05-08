@@ -12,10 +12,8 @@
       />
       <FormulateInput
         name="vivres"
-        type="range"
+        type="emojirange"
         label="Etat des provisions de nourriture"
-        min="1"
-        max="10"
         show-value="true"
       />
       <FormulateInput
@@ -26,34 +24,26 @@
       />
       <FormulateInput
         name="moral_daily"
-        type="range"
+        type="emojirange"
         label="Niveau du moral du jour"
-        min="1"
-        max="10"
         show-value="true"
       />
       <FormulateInput
         name="sante"
-        type="range"
+        type="emojirange"
         label="Etat de santé physique"
-        min="1"
-        max="10"
         show-value="true"
       />
       <FormulateInput
         name="hygiene"
-        type="range"
+        type="emojirange"
         label="Niveau d'hygiène du corps"
-        min="1"
-        max="10"
         show-value="true"
       />
       <FormulateInput
         name="relations"
-        type="range"
+        type="emojirange"
         label="Etat des relations avec les co-confiné.e.s"
-        min="1"
-        max="10"
         show-value="true"
       />
 

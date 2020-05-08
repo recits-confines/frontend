@@ -56,7 +56,6 @@
         >
           Continuer mon journal
         </nuxt-link>
-
       </div>
     </div>
   </div>
