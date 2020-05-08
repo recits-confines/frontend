@@ -42,7 +42,7 @@ export default {
       }
       switch (Math.floor((Number(this.context.model) + 1) / 2)) {
         case 1:
-          return '☹'
+          return '☹️'
         case 2:
           return '😕'
         case 3:
