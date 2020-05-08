@@ -1,37 +1,62 @@
 <template>
   <Page title="Mon historique confirmé">
     <div
+      v-for="date in dates"
+      :key="date.date.toDateString()"
       class="bg-white rounded-lg shadow-lg p-10 min-h-5 my-4"
     >
-      <h3 class="text-4xl text-center">
-        🌳
+      <h3 class="text-xs font-semibold text-center">
+        {{ new Intl.DateTimeFormat(undefined, { dateStyle: 'full' }).format(date.date) }}
       </h3>
-      <p class="text-2xl font-medium text-center">
-        Depuis que je suis confiné
+      <p v-if="debutCarnet" class="text-2xl font-light text-center">
+        Jour <b class="font-bold">{{ dateDiff(Date.parse(debutCarnet), date.date) }}</b> du carnet
       </p>
-      <p class="text-3xl font-medium text-center">
-        je suis sorti.e<br><span class="text-6xl font-hairline">{{ dates.filter(day => day.sortie).length }}</span>
-        <span class="text-xl font-bold">jours</span>
+      <hr class="border-secondary w-3 mx-auto my-2">
+
+      <p v-if="date.meteo">
+        Météo du jour : <b>{{ date.meteo }}</b>
       </p>
-      <ul class="text-2xl font-light text-center">
-        <li>
-          <span class="text-xl font-bold">{{ dates.filter(day => day.sortieChien).length }}</span> fois pour sortir le 🐶
-        </li>
-        <li>
-          <span class="text-xl font-bold">{{ dates.filter(day => day.sortieCourses).length }}</span> fois pour faire les 🛒
-        </li>
-      </ul>
-      <p
-        v-if="latestMoral"
-        class="text-2xl font-light text-center mt-2"
-      >
-        Hier, <b>le moral</b> était {{ latestMoral }}
+      <p>
+        Ce jour là,
+        <span v-if="date.moral_daily">le moral est plutôt <b>{{ moral_daily(date) }}</b>,</span>
+        <span v-if="date.sommeil !== null">j'ai <b>{{ sommeil(date) }} dormi</b>,</span>
+        <span v-if="date.routineDouche !== null">je <b>{{ routineDouche(date) }} douché/habillé</b></span>.
+        <span v-if="date.inquiet !== null">Je <b>{{ inquiet(date) }} inquiet</b> mais </span>
+      </p>
+      <p>
+        <span v-if="date.collations">
+          J’ai pris {{ date.collations }} repas dans la journée.
+        </span>
+        <span v-if="date.collations">
+          J’ai pris {{ date.collations }} repas dans la journée.
+        </span>
+      </p>
+      <div v-if="date.sortie">
+        <p>Je suis sorti pour :</p>
+        <ul class="list-disc list-inside">
+          <li v-if="date.sortieSport">faire du sport</li>
+          <li v-if="date.sortieCourses">acheter de la nourriture</li>
+          <li v-if="date.sortieChien">promener le chien</li>
+          <li v-if="date.sortieTravail">aller travailler</li>
+          <li v-if="date.sortieAutre">une autre raison</li>
+        </ul>
+      </div>
+      <p v-else>
+        Je ne suis pas sorti.
+      </p>
+      <p>
+        Je n’ai pas consommé d’alcool, et je n’ai pas fumé de tabac.
+        <span v-if="date.travail">
+          J’ai travaillé {{ date.travail }} h.
+        </span>
       </p>
     </div>
   </Page>
 </template>
 
 <script>
+/* eslint-disable camelcase */
+import { mapState } from 'vuex'
 import Page from '@/components/Page'
 
 export default {
@@ -40,32 +65,17 @@ export default {
   },
   data () {
     return {
-      dates: [],
-      cards: []
+      dates: []
     }
   },
   computed: {
-    latestMoral () {
-      if (this.dates.length < 1 || !this.dates[0].moral_daily) {
-        return 'non renseigné'
-      }
-      const value = this.dates[0].moral_daily
-      if (value < 3) {
-        return 'mauvais'
-      } else if (value < 5) {
-        return 'plutôt bas'
-      } else if (value < 7) {
-        return 'moyen'
-      } else if (value < 9) {
-        return 'bon'
-      } else {
-        return 'excellent'
-      }
-    }
+    ...mapState({
+      debutCarnet: state => state.user.debutCarnet
+    })
   },
   async mounted () {
-    // this.dates = (await this.$db.daily.keys()).reverse()
-    this.dates = await this.$db.daily.getAll()
+    this.dates = (await this.$db.daily.getAll()).reverse()
+    // this.dates = await this.$db.daily.getAll()
     // reports.filter(day => day.sortie)
     // this.cards = [
     //   {
@@ -73,10 +83,40 @@ export default {
     //     description: `J'ai fais une sortie ${reports.filter(day => day.sortie).length} jours`
     //   }
     // ]
+  },
+  methods: {
+    dateDiff (datePast, dateCompare) {
+      return Math.floor((Date.UTC(
+        dateCompare.getFullYear(),
+        dateCompare.getMonth(),
+        dateCompare.getDate()
+      ) - datePast) / (1000 * 60 * 60 * 24))
+    },
+    moral_daily ({ moral_daily }) {
+      if (moral_daily < 3) {
+        return 'mauvais'
+      } else if (moral_daily < 5) {
+        return 'plutôt bas'
+      } else if (moral_daily < 7) {
+        return 'moyen'
+      } else if (moral_daily < 9) {
+        return 'bon'
+      } else {
+        return 'excellent'
+      }
+    },
+    sommeil ({ sommeil }) {
+      return sommeil ? 'bien' : 'mal'
+    },
+    routineDouche ({ routineDouche }) {
+      return routineDouche ? 'me suis' : 'ne me suis pas'
+    },
+    inquiet ({ inquiet }) {
+      return inquiet ? 'suis' : 'ne suis pas'
+    }
   }
 }
 </script>
 
 <style scoped>
-
 </style>

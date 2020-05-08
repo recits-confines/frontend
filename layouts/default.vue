@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import NavBar from '@/components/NavBar'
 import AppBar from '@/components/AppBar'
 
@@ -17,10 +18,10 @@ export default {
     AppBar,
     NavBar
   },
-  data () {
-    return {
-      initiated: !!this.$store.state.user.id
-    }
+  computed: {
+    ...mapState({
+      initiated: state => !!state.user.id
+    })
   }
 }
 </script>

@@ -1,5 +1,6 @@
 export const state = () => ({
   id: null,
+  debutCarnet: null,
   space: null,
   // people: {
   //   number: null,

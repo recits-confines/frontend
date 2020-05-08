@@ -73,36 +73,6 @@ export default {
   components: {
     Page
   },
-  data () {
-    return {
-      // weather: '',
-      // vivres: null,
-      // collations: null,
-      // moral_daily: null,
-      // sante: null,
-      // hygiene: null,
-      // relations: null,
-      // opinion: [],
-      // alcohol: null,
-      // tabaco: null,
-      // sleep: null,
-      sorties: null
-      // sorties_goal: [],
-      // delivery: null,
-      // routine: null,
-      // work: null,
-      // school: null,
-      // extra_cleanup: null
-    }
-  },
-  computed: {
-    userId () {
-      return this.$store.state.user.id
-    },
-    initial () {
-      return !this.$store.state.user.id
-    }
-  },
   async beforeMount () {
     if (await this.$db.daily.get()) {
       this.$router.push('/daily/end')

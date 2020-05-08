@@ -5,7 +5,8 @@ export default ({ store }) => {
     createPersistedState({
       key: 'user',
       paths: ['user'],
-      fetchBeforeUse: true
+      fetchBeforeUse: true,
+      rehydrated: store => store.commit('loaded')
     })(store)
     createPersistedState({
       key: 'day',

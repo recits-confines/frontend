@@ -160,18 +160,20 @@ export default {
   methods: {
     onThrowOut ({ target, throwDirection }) {
       switch (throwDirection) {
-        case this.$swing.Direction.UP:
-          this.answers[this.current.name] = null
-          this.previous.push(...this.cards.filter(card => card.relates === this.current.name))
-          this.cards = this.cards.filter(card => card.relates !== this.current.name)
-          break
+        // case this.$swing.Direction.UP:
+        //   this.answers[this.current.name] = null
+        //   this.previous.push(...this.cards.filter(card => card.relates === this.current.name))
+        //   this.cards = this.cards.filter(card => card.relates !== this.current.name)
+        //   break
         case this.$swing.Direction.LEFT:
           this.answers[this.current.name] = false
-          this.previous.push(...this.cards.filter(card => card.relates === this.current.name))
-          this.cards = this.cards.filter(card => card.relates !== this.current.name)
+          this.previous.push(...this.cards.filter(card => card.negative === this.current.name))
+          this.cards = this.cards.filter(card => card.negative !== this.current.name)
           break
         case this.$swing.Direction.RIGHT:
           this.answers[this.current.name] = true
+          this.previous.push(...this.cards.filter(card => card.positive === this.current.name))
+          this.cards = this.cards.filter(card => card.positive !== this.current.name)
       }
     },
     onThrowOutEnd () {
@@ -218,8 +220,8 @@ export default {
     swingBack () {
       if (this.previous.length > 0) {
         const cardBack = this.previous.pop()
-        this.cards.push(...this.previous.filter(card => card.relates === cardBack.name))
-        this.previous = this.previous.filter(card => card.relates !== cardBack.name)
+        this.cards.push(...this.previous.filter(card => card.positive === cardBack.name || card.negative === cardBack.name))
+        this.previous = this.previous.filter(card => card.positive !== cardBack.name && card.negative !== cardBack.name)
         this.cards.push(cardBack)
         this.current = this.cards[this.cards.length - 1]
       }

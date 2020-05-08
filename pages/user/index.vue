@@ -38,14 +38,6 @@ import Page from '@/components/Page'
 export default {
   components: {
     Page
-  },
-  data () {
-    return {
-      dates: []
-    }
-  },
-  async mounted () {
-    this.dates = await this.$db.daily.keys()
   }
 }
 </script>

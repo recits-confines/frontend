@@ -25,43 +25,44 @@
       </p>
       <hr class="border-secondary w-3 mx-auto my-2">
       <div
-        v-if="!!status"
-        class="pt-5 flex flex-col"
+        class="pt-5 flex flex-col transition-opacity duration-1000 ease-out"
+        :class="{ 'opacity-0': !loaded }"
       >
         <nuxt-link
-          v-if="status === 'initial'"
+          v-if="initial"
           to="/user/init"
           class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
         >
           Commencer mon journal
         </nuxt-link>
         <nuxt-link
-          v-if="status === 'initial'"
+          v-if="initial"
           to="/restart"
           class="bg-transparent hover:bg-main text-main hover:text-background py-2 px-6 rounded-full"
         >
           J’ai déjà un identifiant
         </nuxt-link>
         <nuxt-link
-          v-if="status === 'ready'"
+          v-if="!initial"
           to="/daily"
           class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
         >
           Continuer mon journal
         </nuxt-link>
-        <nuxt-link
-          v-if="status === 'done'"
-          to="/dashboard"
-          class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
-        >
-          Voir mon tableau de bord
-        </nuxt-link>
+        <!--        <nuxt-link-->
+        <!--          v-if="status === 'done'"-->
+        <!--          to="/dashboard"-->
+        <!--          class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"-->
+        <!--        >-->
+        <!--          Voir mon tableau de bord-->
+        <!--        </nuxt-link>-->
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Logo from '~/components/Logo.vue'
 
 export default {
@@ -70,15 +71,10 @@ export default {
     Logo
   },
   computed: {
-    status () {
-      if (!this.$store.state.user.id) {
-        return 'initial'
-      }
-      // if (await this.$db.daily.get()) {
-      //   return 'done'
-      // }
-      return 'ready'
-    }
+    ...mapState({
+      initial: state => !state.user.id,
+      loaded: state => state.isLoaded
+    })
   }
 }
 </script>

@@ -1,6 +1,7 @@
 <template>
   <Page title="Mon humeur initiale">
     <FormulateForm
+      v-if="loaded"
       class="pb-20"
       :values="values"
       @submit="submit"
@@ -52,16 +53,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Page from '@/components/Page'
 
 export default {
   components: {
     Page
   },
-  data () {
-    return {
-      values: this.$store.state.user
-    }
+  computed: {
+    ...mapState({
+      values: state => state.user,
+      loaded: state => state.isLoaded
+    })
   },
   methods: {
     submit (data) {
