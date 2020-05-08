@@ -6,6 +6,7 @@
     font-weight: 600;
     margin-bottom: .5em; }
 .formulate-input .formulate-input-element {
+    flex-shrink: 0;
     margin-bottom: .5em; }
 .formulate-input .formulate-input-help {
     color: #6d6d6d;
@@ -265,6 +266,7 @@
 .formulate-input[data-classification='box'] .formulate-input-element input:focus ~ .formulate-input-element-decorator {
     border-color: theme('colors.main'); }
 .formulate-input[data-classification='box'] .formulate-input-label--after {
+    flex-shrink: 1;
     margin-left: .5em; }
 .formulate-input[data-classification='box'] .formulate-input-label--before {
     margin-right: .5em; }
