@@ -14,6 +14,12 @@
         validation="required"
       />
       <FormulateInput
+        name="espaceDeconf"
+        type="textarea"
+        label="Description et étendue de votre zone de déconfinement"
+        validation="required"
+      />
+      <FormulateInput
         v-model="alone"
         name="alone"
         type="checkbox"
