@@ -5,7 +5,7 @@
         C’est tout pour aujourd’hui.
       </h2>
       <p class="my-5">
-        Maintenant, je peux visualiser mon historique de confinement.
+        Maintenant, je peux visualiser mon historique de confiné.
       </p>
       <nuxt-link
         to="/dashboard"

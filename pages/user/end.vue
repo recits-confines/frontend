@@ -6,7 +6,7 @@
       </h2>
       <p class="my-5">
         Mon identifiant est le suivant.<br>
-        Il doit être conservé si jamais je dois continuer le carnet sur un autre dispositif.<br>
+        Il doit être conservé si jamais je dois continuer le carnet sur un autre appareil.<br>
         Une capture d'écran de cette page est une bonne manière de le conserver.
       </p>
       <p v-if="userId" class="text-5xl font-bold font-mono">

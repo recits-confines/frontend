@@ -15,7 +15,8 @@ export const state = () => ({
   //   body: null
   // }
   provisionsNumber: null,
-  provisionsBody: null
+  provisionsBody: null,
+  alone: false
 })
 
 export const mutations = {

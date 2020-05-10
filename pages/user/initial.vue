@@ -1,5 +1,5 @@
 <template>
-  <Page title="Mon humeur initiale">
+  <Page title="État initial">
     <FormulateForm
       v-if="loaded"
       class="pb-20"
@@ -11,8 +11,16 @@
         type="textarea"
         label="Description de l'espace de confinement"
         help="Type, surface, état du logement, environnement extérieur, chez qui ?"
+        validation="required"
       />
       <FormulateInput
+        v-model="alone"
+        name="alone"
+        type="checkbox"
+        label="Je suis confiné seul"
+      />
+      <FormulateInput
+        v-if="!alone"
         name="persConf"
         type="textarea"
         label="Personnes confinées avec vous"
@@ -21,20 +29,15 @@
       <FormulateInput
         name="moralInit"
         type="emojirange"
-        label="Moral initial"
+        label="Moral initial au début du confinement"
         show-value="true"
-      />
-      <FormulateInput
-        name="stockInit"
-        type="number"
-        label="Provisions initiales estimée"
-        help="En jours"
-        min="0"
+        validation="required"
       />
       <FormulateInput
         name="stockInitD"
         type="textarea"
-        label="Avez-vous fait des stocks ? qu’avez-vous acheté en priorité ?"
+        label="Avez-vous fait des stocks ? Qu’avez-vous acheté en priorité ?"
+        validation="required"
       />
       <img
         class="w-4/12 mx-auto my-10"
@@ -57,6 +60,11 @@ import Page from '@/components/Page'
 export default {
   components: {
     Page
+  },
+  data () {
+    return {
+      alone: false
+    }
   },
   computed: {
     ...mapState({

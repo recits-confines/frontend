@@ -10,7 +10,8 @@
 @import './forms.css';
 @import '~/node_modules/vue-loading-overlay/dist/vue-loading.css';
 
-html {
+html,
+body {
     @apply min-h-screen bg-background;
     overscroll-behavior: contain;
     font-size: 18px;

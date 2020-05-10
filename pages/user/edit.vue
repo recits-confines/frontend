@@ -1,5 +1,5 @@
 <template>
-  <Page title="Mon humeur initiale">
+  <Page title="Profil">
     <FormulateForm
       v-if="loaded"
       class="pb-20"
@@ -9,7 +9,7 @@
       <FormulateInput
         type="date"
         name="debutCarnet"
-        label="Carnet commencé le"
+        label="Je suis confiné depuis le"
         :validation="[['required'], ['after', '2020-01-01'], ['before', new Date()]]"
         min="2020-01-01"
         :validation-messages="{
@@ -21,31 +21,34 @@
       <FormulateInput
         name="lieuCarnet"
         type="text"
-        label="à"
+        label="Dans la commune"
+        validation="required"
       />
       <FormulateInput
         name="paysConfine"
         type="select"
         :options="countries"
-        label="dans le pays"
+        label="Dans le pays"
         placeholder="Sélectionner"
+        validation="required"
       />
       <FormulateInput
         name="residencePrinc"
         type="text"
-        inputmode="decimal"
-        pattern="[0-9]*"
-        label="Commune de résidence principale"
+        label="Ma résidence principale est dans la commune de"
+        validation="required"
       />
       <FormulateInput
         name="nationalite"
         type="text"
         label="Nationalité"
+        validation="required"
       />
       <FormulateInput
         name="profession"
         type="text"
         label="Activité professionnelle principale"
+        validation="required"
       />
       <FormulateInput
         name="tempsTravailOrig"
@@ -53,6 +56,7 @@
         label="Volume horaire hebdomadaire travaillé avant le confinement"
         min="0"
         max="168"
+        validation="required"
       />
       <FormulateInput
         v-if="!values.id"
@@ -84,7 +88,7 @@
       <FormulateErrors />
       <FormulateInput
         type="submit"
-        label="Je valide mon état initial"
+        label="Je valide mon profil"
       />
     </FormulateForm>
   </Page>
