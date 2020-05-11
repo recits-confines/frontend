@@ -95,12 +95,12 @@
       <div
         v-for="c1 in previous"
         :key="c1.name"
-        class="w-2 h-2 m-1 rounded-full bg-secondary"
+        class="w-1 h-1 ml-1 rounded-full bg-secondary"
       />
       <div
         v-for="(c2, index) in cards"
         :key="c2.name"
-        class="w-2 h-2 m-1 rounded-full"
+        class="w-1 h-1 ml-1 rounded-full"
         :class="{ 'bg-white': index === 0, 'bg-secondary': index !== 0 }"
       />
     </div>
