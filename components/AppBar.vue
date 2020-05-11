@@ -1,5 +1,5 @@
 <template>
-  <nav class="w-100 bg-white">
+  <nav class="w-100 bg-white sticky bottom-0">
     <ul class="flex container mx-auto">
       <li class="flex-1 mr-2">
         <nuxt-link
