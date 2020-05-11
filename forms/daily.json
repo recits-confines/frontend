@@ -1,0 +1,50 @@
+[
+  {
+    "name": "weather",
+    "label": "Météo du jour",
+    "type": "select",
+    "options": {
+      "soleil": "Soleil",
+      "nuages": "Nuages",
+      "pluie": "Pluie",
+      "orages": "Orages"
+    },
+    "placeholder": "Sélectionner",
+    "validation": "required"
+  },
+  {
+    "name": "collations",
+    "label": "Nombres de collations dans la journée",
+    "type": "number",
+    "min": "0",
+    "validation": "required"
+  },
+  {
+    "name": "moral_daily",
+    "label": "Niveau du moral du jour",
+    "type": "emojirange",
+    "validation": "required"
+  },
+  {
+    "name": "sante",
+    "label": "Etat de santé physique",
+    "type": "emojirange",
+    "validation": "required"
+  },
+  {
+    "name": "hygiene",
+    "label": "Niveau d'hygiène du corps",
+    "type": "emojirange",
+    "validation": "required"
+  },
+  {
+    "name": "relations",
+    "label": "Etat des relations avec les co-confiné.e.s",
+    "type": "emojirange",
+    "validation": "required"
+  },
+  {
+    "label": "Valider",
+    "type": "submit"
+  }
+]

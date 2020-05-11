@@ -1,0 +1,42 @@
+[
+  {
+    "name": "espaceConf",
+    "label": "Description de l'espace de confinement",
+    "type": "textarea",
+    "help": "Type, surface, état du logement, environnement extérieur, chez qui ?",
+    "validation": "required"
+  },
+  {
+    "name": "espaceDeconf",
+    "label": "Description et étendue de votre zone de déconfinement",
+    "type": "textarea",
+    "validation": "required"
+  },
+  {
+    "name": "alone",
+    "label": "Je suis confiné seul",
+    "type": "checkbox"
+  },
+  {
+    "name": "persConf",
+    "label": "Personnes confinées avec vous",
+    "type": "textarea",
+    "help": "Nombre, lien, âge"
+  },
+  {
+    "name": "moralInit",
+    "label": "Moral initial au début du confinement",
+    "type": "emojirange",
+    "validation": "required"
+  },
+  {
+    "name": "stockInitD",
+    "label": "Avez-vous fait des stocks ? Qu’avez-vous acheté en priorité ?",
+    "type": "textarea",
+    "validation": "required"
+  },
+  {
+    "label": "Je valide mon état initial",
+    "type": "submit"
+  }
+]

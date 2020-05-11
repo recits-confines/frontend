@@ -7,7 +7,7 @@
 
 <script>
 import Swipe from '@/components/Swipe'
-import stack from '@/static/stacks/daily.json'
+import stack from '@/forms/swipe.json'
 
 export default {
   components: {

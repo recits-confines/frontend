@@ -34,7 +34,8 @@
       />
       <FormulateInput
         name="residencePrinc"
-        type="text"
+        type="select"
+        :options="countries"
         label="Ma résidence principale est dans la commune de"
         validation="required"
       />
@@ -79,11 +80,6 @@
         label="J’ai été informé.e de la protection et de la confidentialité des informations et j’y consens."
         validation="required"
       />
-
-      <img
-        class="w-4/12 mx-auto my-10"
-        src="@/static/images/map.svg"
-      >
 
       <FormulateErrors />
       <FormulateInput
