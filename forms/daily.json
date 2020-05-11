@@ -15,8 +15,16 @@
   {
     "name": "collations",
     "label": "Nombres de collations dans la journée",
-    "type": "number",
-    "min": "0",
+    "type": "select",
+    "options": {
+      "0": "0",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5 ou plus"
+    },
+    "placeholder": "Sélectionner",
     "validation": "required"
   },
   {

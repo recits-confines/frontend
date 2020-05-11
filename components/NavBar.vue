@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex text-main items-center justify-center flex-wrap bg-background p-6 border-main border-b sticky top-0 z-50">
+  <nav class="flex text-main items-center justify-center flex-wrap bg-background p-4 border-main border-b sticky top-0 z-50">
     <nuxt-link
       to="/"
       class="flex items-center flex-shrink-0 mr-6"

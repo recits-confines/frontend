@@ -6,10 +6,15 @@
           <p class="text-xs font-semibold">
             {{ context }}
           </p>
-          <p class="text-2xl font-light my-2">
-            {{ description }}
+          <p v-if="icon" class="text-xl font-light my-2">
+            {{ body }}
           </p>
-          <p class="text-6xl">
+          <div
+            v-else
+            class="text-xl font-light my-2"
+            v-html="body"
+          />
+          <p v-if="icon" class="text-6xl">
             {{ icon }}
           </p>
         </slot>
@@ -29,7 +34,7 @@ export default {
       type: String,
       default: 'Aujourd\'hui,'
     },
-    description: {
+    body: {
       type: String,
       default: ''
     },
