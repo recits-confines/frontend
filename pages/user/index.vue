@@ -1,7 +1,7 @@
 <template>
   <Page title="Mon profil confiné">
     <div class="flex-grow flex flex-col text-center">
-      <p>
+      <p class="mb-3">
         <b>Vos données sont protégées</b>
         <nuxt-link
           to="/privacy"
@@ -9,6 +9,12 @@
         >
           En savoir plus
         </nuxt-link>
+      </p>
+      <p v-if="userId">
+        Identifiant
+        <span class="font-bold font-mono">
+          {{ userId }}
+        </span>
       </p>
       <nuxt-link
         to="/user/stories/create"
@@ -39,11 +45,17 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Page from '@/components/Page'
 
 export default {
   components: {
     Page
+  },
+  computed: {
+    ...mapState({
+      userId: state => state.user.id
+    })
   }
 }
 </script>

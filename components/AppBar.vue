@@ -1,9 +1,9 @@
 <template>
-  <nav class="w-100 bg-white sticky bottom-0">
+  <nav class="w-100 bg-white sticky bottom-0 shadow">
     <ul class="flex container mx-auto">
       <li class="flex-1 mr-2">
         <nuxt-link
-          class="text-center block border-b-4 text-main py-4 px-2"
+          class="text-center block border-b-4 text-main py-3 px-2"
           active-class="border-main"
           to="/user"
         >
@@ -14,7 +14,7 @@
       </li>
       <li class="flex-1 mr-2">
         <nuxt-link
-          class="text-center block border-b-4 text-main py-4 px-2"
+          class="text-center block border-b-4 text-main py-3 px-2"
           active-class="border-main"
           to="/daily"
         >
@@ -26,7 +26,7 @@
       </li>
       <li class="flex-1 mr-2">
         <nuxt-link
-          class="text-center block border-b-4 text-main py-4 px-2"
+          class="text-center block border-b-4 text-main py-3 px-2"
           active-class="border-main"
           to="/dashboard"
         >
