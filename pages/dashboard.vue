@@ -1,5 +1,11 @@
 <template>
   <Page title="Mon historique confirmé">
+    <nuxt-link
+      to="/weekly"
+      class="bg-main hover:bg-transparent uppercase font-black text-center text-background hover:text-main py-2 px-6 my-4 border border-transparent hover:border-main rounded-full"
+    >
+      Faire une revue de ma semaine
+    </nuxt-link>
     <div
       v-for="date in dates"
       :key="date.date.toDateString()"
