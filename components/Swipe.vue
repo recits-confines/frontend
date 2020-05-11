@@ -157,6 +157,12 @@ export default {
     }, {})
     this.current = this.cards[this.cards.length - 1]
   },
+  beforeDestroy () {
+    this.current = {}
+    this.answers = {}
+    this.cards = []
+    this.previous = []
+  },
   methods: {
     onThrowOut ({ target, throwDirection }) {
       switch (throwDirection) {
