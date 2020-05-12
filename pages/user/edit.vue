@@ -34,9 +34,15 @@
       />
       <FormulateInput
         name="residencePrinc"
+        type="text"
+        label="Ma résidence principale est dans la commune de"
+        validation="required"
+      />
+      <FormulateInput
+        name="residencePrincPays"
         type="select"
         :options="countries"
-        label="Ma résidence principale est dans la commune de"
+        label="Ma résidence principale est dans la pays"
         validation="required"
       />
       <FormulateInput
