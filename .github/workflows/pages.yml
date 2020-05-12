@@ -32,6 +32,7 @@ jobs:
       env:
         SENTRY_AUTO_ATTACH_COMMITS: ${{ secrets.SENTRY_AUTO_ATTACH_COMMITS }}
         SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+        SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
         SENTRY_PUBLISH_RELEASE: ${{ secrets.SENTRY_PUBLISH_RELEASE }}
         SENTRY_RELEASE_REPO: ${{ secrets.SENTRY_RELEASE_REPO }}
 
