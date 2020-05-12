@@ -34,6 +34,7 @@ jobs:
         SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
         SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
         SENTRY_PUBLISH_RELEASE: ${{ secrets.SENTRY_PUBLISH_RELEASE }}
+        SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
         SENTRY_RELEASE_REPO: ${{ secrets.SENTRY_RELEASE_REPO }}
 
     - name: Deploy
