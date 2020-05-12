@@ -18,7 +18,7 @@
     "@nuxtjs/axios": "^5.10.3",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/sentry": "^4.0.3",
-    "idb": "^5.0.2",
+    "idb": "^5.0.3",
     "nuxt": "^2.0.0",
     "swing": "^3.1.4",
     "vue-loading-overlay": "^3.3.2",
