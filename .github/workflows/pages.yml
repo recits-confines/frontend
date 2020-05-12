@@ -30,6 +30,7 @@ jobs:
 
     - run: npm run generate
       env:
+        SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         SENTRY_AUTO_ATTACH_COMMITS: ${{ secrets.SENTRY_AUTO_ATTACH_COMMITS }}
         SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
         SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
