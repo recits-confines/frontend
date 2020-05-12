@@ -5,13 +5,13 @@
         C’est tout pour aujourd’hui.
       </h2>
       <p class="my-5">
-        Maintenant, je peux visualiser mon historique de confiné.
+        Maintenant, je peux visualiser mon historique confiné.
       </p>
       <nuxt-link
         to="/dashboard"
         class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
       >
-        Mon historique confirmé
+        Mon historique confiné
       </nuxt-link>
     </div>
   </Page>

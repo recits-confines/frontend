@@ -1,5 +1,5 @@
 <template>
-  <Page title="Mon historique confirmé">
+  <Page title="Mon historique confiné">
     <nuxt-link
       to="/weekly"
       class="bg-main hover:bg-transparent uppercase font-black text-center text-background hover:text-main py-2 px-6 my-4 border border-transparent hover:border-main rounded-full"
