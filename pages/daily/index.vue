@@ -40,7 +40,7 @@ export default {
     async submitHandler (data) {
       await this.$store.commit('day/init')
       await this.$store.commit('day/set', data)
-      this.$router.push('/daily/two')
+      this.$router.push('/daily/swipe')
     }
   }
 }
