@@ -13,7 +13,6 @@
       <span class="rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-2">Tip</span>
       Participer aux entretiens
     </a>
-
     <div
       v-for="date in dates"
       :key="date.date.toDateString()"
