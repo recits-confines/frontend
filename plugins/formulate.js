@@ -8,7 +8,7 @@ Vue.component('EmojiSlider', EmojiSlider)
 
 Vue.use(VueFormulate, {
   plugins: [fr],
-  locale: 'fr',
+  locale: process.env.APP_LANG || 'fr',
   library: {
     emojirange: {
       classification: 'slider',

@@ -1,8 +1,6 @@
 name: GitHub Pages
 
-on:
-  push:
-    branches: [ master ]
+on: [ push, pull_request ]
 
 jobs:
   build:
@@ -12,9 +10,6 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        include:
-          - language: fr
-            domain: recitsconfines.net
 
     steps:
     - uses: actions/checkout@v2
@@ -22,6 +17,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+
+#     - name: cache node_modules
+#       uses: actions/cache@v1
+#       with:
+#         path: node_modules
+#         key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
 
     - run: npm ci
 
@@ -34,14 +35,10 @@ jobs:
         SENTRY_PUBLISH_RELEASE: ${{ secrets.SENTRY_PUBLISH_RELEASE }}
         SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
         SENTRY_RELEASE_REPO: ${{ secrets.SENTRY_RELEASE_REPO }}
-        APP_LANG: ${{ matrix.language }}
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
-        cname: app.${{ matrix.domain }}
-        publish_branch: master
-        external_repository: recits-confines/${{ matrix.domain }}
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        cname: preview.recitsconfines.net

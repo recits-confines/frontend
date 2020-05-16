@@ -6,7 +6,7 @@ export default {
   */
   head: {
     htmlAttrs: {
-      lang: 'fr'
+      lang: process.env.APP_LANG || 'fr'
     },
     title: 'Récits confinés',
     meta: [
