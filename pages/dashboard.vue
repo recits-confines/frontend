@@ -6,6 +6,15 @@
     >
       Faire une revue de ma semaine
     </nuxt-link>
+    <a
+      :href="`mailto:recitsconfines@gmail.com?subject=%5BR%C3%A9cits%20confin%C3%A9s%5D%20Participation%20aux%20entretiens&body=Identifiant%20%3A%20${userId}%0D%0A%0D%0A---%0D%0A%0D%0AVotre%20message%20(optionnel)`"
+      class="p-2 bg-main hover:bg-transparent text-center uppercase font-black items-center py-2 px-6 my-4 text-background hover:text-main border border-transparent hover:border-main lg:rounded-full flex lg:inline-flex"
+    >
+      <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold">Tip</span>
+      <span class="mr-2 flex-auto">Participer aux entretiens</span>
+      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
+    </a>
+
     <div
       v-for="date in dates"
       :key="date.date.toDateString()"
@@ -86,6 +95,7 @@ export default {
   },
   computed: {
     ...mapState({
+      userId: state => state.user.id,
       debutCarnet: state => state.user.debutCarnet
     })
   },
