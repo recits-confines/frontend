@@ -8,7 +8,7 @@
     >
       <FormulateInput
         type="date"
-        name="debutCarnet"
+        name="created_at"
         label="Je suis confiné depuis le"
         :validation="[['required'], ['after', '2020-01-01'], ['before', new Date()]]"
         min="2020-01-01"
@@ -19,13 +19,13 @@
         }"
       />
       <FormulateInput
-        name="lieuCarnet"
+        name="carnet_location"
         type="text"
         label="Dans la commune"
         validation="required"
       />
       <FormulateInput
-        name="paysConfine"
+        name="carnet_country"
         type="select"
         :options="countries"
         label="Dans le pays"
@@ -33,32 +33,32 @@
         validation="required"
       />
       <FormulateInput
-        name="residencePrinc"
+        name="usual_location"
         type="text"
         label="Ma résidence principale est dans la commune de"
         validation="required"
       />
       <FormulateInput
-        name="residencePrincPays"
+        name="usual_country"
         type="select"
         :options="countries"
         label="Ma résidence principale est dans la pays"
         validation="required"
       />
       <FormulateInput
-        name="nationalite"
+        name="nationality"
         type="text"
         label="Nationalité"
         validation="required"
       />
       <FormulateInput
-        name="profession"
+        name="job_title"
         type="text"
         label="Activité professionnelle principale"
         validation="required"
       />
       <FormulateInput
-        name="tempsTravailOrig"
+        name="job_week_hours"
         type="number"
         label="Volume horaire hebdomadaire travaillé avant le confinement"
         min="0"
