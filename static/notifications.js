@@ -1,4 +1,6 @@
-console.log('Custom service worker!')
+/**
+ * Notifications
+ */
 
 self.addEventListener('notificationclick', (event) => {
   event.waitUntil(self.clients.matchAll().then((clients) => {
