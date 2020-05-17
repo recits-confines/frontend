@@ -30,7 +30,7 @@ export const mutations = {
       state.created_at = new Date()
     }
   },
-  data (state, data) {
+  profile (state, data) {
     state = Object.assign(state, data)
   },
   initial (state, data) {
@@ -73,23 +73,20 @@ export const actions = {
     })
     commit('setId', user.id)
   },
-  async save ({ commit, state, dispatch }, data) {
-    commit('data', data)
-    if (!state.name) {
-      await dispatch('setUser')
-    }
-  },
   async store ({ state }) {
     await this.$axios.$put(`/users/${state.id}`, state)
   },
   async submit ({ commit, dispatch, state }, { type, date, data }) {
-    if (!state.id) {
-      await dispatch('obtainId')
-    }
-    if (type === 'initial') {
+    if (type === 'initial' || type === 'profile') {
       commit(type, data)
     } else {
       commit(type, date)
+    }
+    if (!state.name) {
+      await dispatch('setUser')
+    }
+    if (!state.id) {
+      await dispatch('obtainId')
     }
   }
 }

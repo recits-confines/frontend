@@ -367,13 +367,13 @@ export default {
   },
   methods: {
     ...mapActions({
-      save: 'user/save',
+      save: 'user/submit',
       store: 'user/store'
     }),
     async submit (data) {
       this.$nuxt.$loading.start()
       const initiated = !!this.values.name
-      await this.save(data)
+      await this.save({ type: 'profile', data })
       await this.store()
       this.$router.push(initiated ? '/user/end' : '/user/initial')
       this.$nuxt.$loading.finish()
