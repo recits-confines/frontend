@@ -9,11 +9,13 @@
           <p v-if="icon" class="text-xl font-light my-2">
             {{ body }}
           </p>
+          <!-- eslint-disable vue/no-v-html -->
           <div
             v-else
             class="text-xl font-light my-2"
             v-html="body"
           />
+          <!-- eslint-enable -->
           <p v-if="icon" class="text-6xl">
             {{ icon }}
           </p>
