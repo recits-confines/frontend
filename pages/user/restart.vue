@@ -5,7 +5,7 @@
     >
       <FormulateInput
         v-model="name"
-        name="userId"
+        name="name"
         type="text"
         label="Identifiant"
         help="Entrer votre identifiant unique à la première participation"
