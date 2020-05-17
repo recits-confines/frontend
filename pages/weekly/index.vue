@@ -12,7 +12,7 @@
       v-if="dataCount"
       label="Je soumets mon rapport hebdomadaire"
       type="submit"
-      @submit.prevent="submit"
+      @click.prevent="submit"
     />
   </Page>
 </template>
