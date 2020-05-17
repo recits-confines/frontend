@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import Swipe from '@/components/Swipe'
 import stack from '@/forms/swipe.json'
 
@@ -21,15 +22,21 @@ export default {
   async beforeMount () {
     if (await this.$db.daily.get()) {
       this.$router.push('/daily/end')
+    } else if (this.$store.state.report.type !== 'daily') {
+      this.$router.push('/daily')
     }
   },
   methods: {
-    async onSubmit (answers) {
-      const loader = this.$loading.show()
-      await this.$db.daily.add(answers)
-      this.$store.commit('user/submitDaily')
+    ...mapActions({
+      save: 'report/save',
+      store: 'report/store'
+    }),
+    async onSubmit (data) {
+      this.$nuxt.$loading.start()
+      await this.save(data)
+      await this.store()
       this.$router.push('/daily/end')
-      loader.hide()
+      this.$nuxt.$loading.finish()
     }
   }
 }

@@ -40,13 +40,18 @@ export default {
   },
   methods: {
     async submit () {
-      const loader = this.$loading.show()
+      this.$nuxt.$loading.start()
       await this.$db.stories.add({
         title: this.title,
         body: this.body
       })
+      await this.$axios.$post('/stories', {
+        user_id: this.$store.state.user.id,
+        title: this.title,
+        body: this.body
+      })
       this.$router.push('/user/stories')
-      loader.hide()
+      this.$nuxt.$loading.finish()
     }
   }
 }

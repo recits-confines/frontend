@@ -97,7 +97,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import Page from '@/components/Page'
 
 export default {
@@ -366,12 +366,17 @@ export default {
     })
   },
   methods: {
+    ...mapActions({
+      save: 'user/save',
+      store: 'user/store'
+    }),
     submit (data) {
-      const loader = this.$loading.show()
-      const initiated = !!this.values.id
-      this.$store.commit('user/init', data)
+      this.$nuxt.$loading.start()
+      const initiated = !!this.values.name
+      this.save(data)
+      this.store()
       this.$router.push(initiated ? '/user/end' : '/user/initial')
-      loader.hide()
+      this.$nuxt.$loading.finish()
     }
   }
 }

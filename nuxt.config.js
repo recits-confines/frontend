@@ -21,7 +21,11 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#222b6e' },
+  loading: {
+    color: '#222b6e',
+    height: '4px',
+    continuous: true
+  },
   /*
   ** Global CSS
   */
@@ -63,6 +67,9 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: process.env.API_URL || '',
+    https: true,
+    retry: { retries: 3 }
   },
   /*
   ** PWA module configuration

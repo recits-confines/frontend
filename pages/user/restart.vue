@@ -4,7 +4,7 @@
       @submit="submitHandler"
     >
       <FormulateInput
-        v-model="userId"
+        v-model="name"
         name="userId"
         type="text"
         label="Identifiant"
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import Page from '@/components/Page'
 
 export default {
@@ -29,15 +30,18 @@ export default {
   },
   data () {
     return {
-      userId: ''
+      name: ''
     }
   },
   methods: {
+    ...mapActions({
+      set: 'user/setUser'
+    }),
     async submitHandler (data) {
-      const loader = this.$loading.show()
-      await this.$store.commit('user/setId', data.userId)
-      this.$router.push('/daily')
-      loader.hide()
+      this.$nuxt.$loading.start()
+      await this.set(data.name)
+      this.$router.push('/user/end')
+      this.$nuxt.$loading.finish()
     }
   }
 }

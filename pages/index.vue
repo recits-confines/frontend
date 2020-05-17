@@ -37,7 +37,7 @@
         </nuxt-link>
         <nuxt-link
           v-if="initial"
-          to="/restart"
+          to="/user/restart"
           class="bg-transparent hover:bg-main text-main hover:text-background py-2 px-6 rounded-full"
         >
           J’ai déjà un identifiant

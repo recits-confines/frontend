@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import Page from '@/components/Page'
 import inputs from '@/forms/daily.json'
 
@@ -37,9 +37,13 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      init: 'report/init',
+      save: 'report/save'
+    }),
     async submitHandler (data) {
-      await this.$store.commit('day/init')
-      await this.$store.commit('day/set', data)
+      await this.init('daily')
+      await this.save(data)
       this.$router.push('/daily/swipe')
     }
   }

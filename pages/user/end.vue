@@ -9,8 +9,8 @@
         Il doit être conservé si jamais je dois continuer le carnet sur un autre appareil.<br>
         Une capture d'écran de cette page est une bonne manière de le conserver.
       </p>
-      <p v-if="userId" class="text-5xl font-bold font-mono">
-        {{ userId }}
+      <p v-if="userName" class="text-5xl font-bold font-mono">
+        {{ userName }}
       </p>
       <hr class="border-secondary w-3 mx-auto my-2">
       <p class="my-5">
@@ -36,7 +36,7 @@ export default {
   },
   computed: {
     ...mapState({
-      userId: state => state.user.id
+      userName: state => state.user.name
     })
   }
 }

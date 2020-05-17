@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import Page from '@/components/Page'
 import inputs from '@/forms/initial.json'
 
@@ -35,16 +35,23 @@ export default {
   },
   computed: {
     ...mapState({
-      values: state => state.user,
+      values: state => state.user.initial,
       loaded: state => state.isLoaded
     })
   },
   methods: {
-    submit (data) {
-      const loader = this.$loading.show()
-      this.$store.commit('user/init', data)
+    ...mapActions({
+      init: 'report/init',
+      save: 'report/save',
+      store: 'report/store'
+    }),
+    async submit (data) {
+      this.$nuxt.$loading.start()
+      await this.init('initial')
+      await this.save(data)
+      await this.store(data)
       this.$router.push('/user/end')
-      loader.hide()
+      this.$nuxt.$loading.finish()
     }
   }
 }
