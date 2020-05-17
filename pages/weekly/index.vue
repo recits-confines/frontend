@@ -48,7 +48,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      init: 'report/init'
+      init: 'report/init',
+      store: 'report/store'
     }),
     async submit () {
       this.$nuxt.$loading.start()
