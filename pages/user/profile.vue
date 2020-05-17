@@ -370,11 +370,11 @@ export default {
       save: 'user/save',
       store: 'user/store'
     }),
-    submit (data) {
+    async submit (data) {
       this.$nuxt.$loading.start()
       const initiated = !!this.values.name
-      this.save(data)
-      this.store()
+      await this.save(data)
+      await this.store()
       this.$router.push(initiated ? '/user/end' : '/user/initial')
       this.$nuxt.$loading.finish()
     }

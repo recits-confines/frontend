@@ -42,39 +42,46 @@ export const mutations = {
 }
 
 export const actions = {
-  async obtainId ({ commit, state }) {
-    let user
+  async obtainId ({ commit, state, dispatch }) {
     try {
-      user = await this.$axios.$get(`/users/${state.name}`)
+      const user = await this.$axios.$get(`/users/${state.name}`)
+      commit('setId', user.id)
     } catch (e) {
-      const oldName = state.name
-      commit('setName')
-      user = await this.$axios.$post('/users', {
-        name: state.name,
-        old_name: oldName
-      })
+      await dispatch('createUser')
     }
-    commit('setId', user.id)
   },
   async setUser ({ commit, dispatch, state }, userName) {
     if (state.name) {
       throw new Error('Un utilisateur a déjà été paramétré')
+    } else if (userName) {
+      commit('setName', userName)
+      await dispatch('obtainId')
+    } else {
+      await dispatch('createUser')
     }
-    commit('setName', userName)
-    await dispatch('obtainId')
   },
-  save ({ commit, state, dispatch }, data) {
+  async createUser ({ commit, state }) {
+    const oldName = state.name
+    commit('setName')
+    const user = await this.$axios.$post('/users', {
+      name: state.name,
+      old_name: oldName,
+      created_at: state.created_at
+    })
+    commit('setId', user.id)
+  },
+  async save ({ commit, state, dispatch }, data) {
     if (!state.name) {
-      dispatch('setUser')
+      await dispatch('setUser')
     }
     commit('data', data)
   },
-  async store ({ state, dispatch, rootState }) {
+  async store ({ state }) {
     await this.$axios.$put(`/users/${state.id}`, state)
   },
-  submit ({ commit, dispatch, state }, { type, date, data }) {
+  async submit ({ commit, dispatch, state }, { type, date, data }) {
     if (!state.id) {
-      dispatch('obtainId')
+      await dispatch('obtainId')
     }
     if (type === 'initial') {
       commit(type, data)

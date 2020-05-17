@@ -36,7 +36,7 @@ export const actions = {
     commit('data', Object.assign(state.data, data))
   },
   async store ({ state, dispatch, rootState }) {
-    dispatch('user/submit', { ...state }, { root: true })
+    await dispatch('user/submit', { ...state }, { root: true })
     if (state.type !== 'initial') {
       await this._vm.$db[state.type].add(state)
     }
