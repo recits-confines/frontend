@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Titre de la section 1",
+    "inputs": [
+      {
+        "name": "a1",
+        "label": "Description et étendue de votre zone de déconfinement",
+        "type": "textarea",
+        "validation": "required"
+      }
+    ]
+  },
+  {
+    "title": "Titre de la section 2",
+    "inputs": [
+      {
+        "name": "r1",
+        "label": "Description et étendue de votre zone de déconfinement",
+        "type": "textarea",
+        "validation": "required"
+      }
+    ]
+  },
+  {
+    "title": "Titre de la section 3",
+    "inputs": [
+      {
+        "name": "r1",
+        "label": "Description et étendue de votre zone de déconfinement",
+        "type": "textarea",
+        "validation": "required"
+      }
+    ]
+  }
+]

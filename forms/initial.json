@@ -34,9 +34,5 @@
     "label": "Avez-vous fait des stocks ? Qu’avez-vous acheté en priorité ?",
     "type": "textarea",
     "validation": "required"
-  },
-  {
-    "label": "Je valide mon état initial",
-    "type": "submit"
   }
 ]

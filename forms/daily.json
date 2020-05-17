@@ -50,9 +50,5 @@
     "label": "Etat des relations avec les co-confiné.e.s",
     "type": "emojirange",
     "validation": "required"
-  },
-  {
-    "label": "Valider",
-    "type": "submit"
   }
 ]

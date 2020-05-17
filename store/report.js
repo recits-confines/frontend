@@ -43,5 +43,6 @@ export const actions = {
       user_id: rootState.user.id,
       ...state
     })
+    await dispatch('init', null)
   }
 }

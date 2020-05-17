@@ -1,11 +1,11 @@
 <template>
-  <Page title="Les événements du jour">
+  <Page :title="title">
     <Report
       :inputs="inputs"
-      :do-init="true"
+      :do-init="false"
       :do-store="false"
-      type="daily"
-      end="/daily/swipe"
+      type="weekly"
+      end="/weekly"
     />
   </Page>
 </template>
@@ -13,7 +13,7 @@
 <script>
 import Page from '@/components/Page'
 import Report from '@/components/Report'
-import inputs from '@/forms/daily.json'
+import weekly from '@/forms/weekly.json'
 
 export default {
   components: {
@@ -22,16 +22,12 @@ export default {
   },
   data () {
     return {
-      inputs
-    }
-  },
-  async beforeMount () {
-    if (await this.$db.daily.get()) {
-      this.$router.push('/daily/end')
+      title: weekly[this.$route.params.id].title,
+      inputs: weekly[this.$route.params.id].inputs
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
 </style>

@@ -1,31 +1,29 @@
 <template>
   <Page title="État initial">
-    <FormulateForm
-      v-if="loaded"
-      class="pb-20"
+    <Report
+      :inputs="inputs"
       :values="values"
-      @submit="submit"
+      :do-init="true"
+      :do-store="true"
+      type="initial"
+      end="/user/end"
+    />
+    <img
+      class="w-4/12 mx-auto my-10"
+      src="@/static/images/map.svg"
     >
-      <FormulateInput
-        v-for="input in inputs"
-        :key="input.name"
-        v-bind="input"
-      />
-      <img
-        class="w-4/12 mx-auto my-10"
-        src="@/static/images/map.svg"
-      >
-    </FormulateForm>
   </Page>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapState } from 'vuex'
 import Page from '@/components/Page'
+import Report from '@/components/Report'
 import inputs from '@/forms/initial.json'
 
 export default {
   components: {
+    Report,
     Page
   },
   data () {
@@ -35,24 +33,8 @@ export default {
   },
   computed: {
     ...mapState({
-      values: state => state.user.initial,
-      loaded: state => state.isLoaded
+      values: state => state.user.initial
     })
-  },
-  methods: {
-    ...mapActions({
-      init: 'report/init',
-      save: 'report/save',
-      store: 'report/store'
-    }),
-    async submit (data) {
-      this.$nuxt.$loading.start()
-      await this.init('initial')
-      await this.save(data)
-      await this.store(data)
-      this.$router.push('/user/end')
-      this.$nuxt.$loading.finish()
-    }
   }
 }
 </script>

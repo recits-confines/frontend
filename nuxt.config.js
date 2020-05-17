@@ -1,3 +1,4 @@
+import path from 'path'
 
 export default {
   mode: 'universal',
@@ -61,6 +62,12 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/sentry'
   ],
+  /*
+  ** Nuxt.js extra routes
+  */
+  generate: {
+    routes: require(path.join(__dirname, 'forms/weekly.json')).map((week, index) => `/weekly/${index}`)
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
