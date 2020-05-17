@@ -71,10 +71,10 @@ export const actions = {
     commit('setId', user.id)
   },
   async save ({ commit, state, dispatch }, data) {
+    commit('data', data)
     if (!state.name) {
       await dispatch('setUser')
     }
-    commit('data', data)
   },
   async store ({ state }) {
     await this.$axios.$put(`/users/${state.id}`, state)
