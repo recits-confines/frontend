@@ -1,4 +1,4 @@
-name: GitHub Pages
+name: Preview Pages
 
 on: [ push, pull_request ]
 
@@ -43,3 +43,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
         cname: preview.recitsconfines.net
+        force_orphan: true
