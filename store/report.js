@@ -22,21 +22,20 @@ export const mutations = {
 export const actions = {
   init ({ commit, rootState }, type) {
     commit('type', type)
-    let date = new Date()
-    if (type === 'daily') {
-      date = new Date(date.toDateString())
-    } else if (type === 'weekly') {
-      date = new Date(new Date(date.setDate(date.getDate() + 7 - date.getDay())).toDateString())
-    } else if (type === 'initial') {
-      date = rootState.user.created_at
-    }
-    commit('date', date)
+    commit('date', new Date())
   },
   save ({ commit, state }, data) {
     commit('data', Object.assign(state.data, data))
   },
   async store ({ state, dispatch, rootState }) {
     await dispatch('user/submit', { ...state }, { root: true })
+    if (state.type === 'daily') {
+      state.date = new Date(state.date.toDateString())
+    } else if (state.type === 'weekly') {
+      state.date = new Date(new Date(state.date.setDate(state.date.getDate() + 7 - state.date.getDay())).toDateString())
+    } else if (state.type === 'initial') {
+      state.date = rootState.user.created_at
+    }
     if (state.type !== 'initial') {
       await this._vm.$db[state.type].add(state)
     }
