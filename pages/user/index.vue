@@ -10,10 +10,10 @@
           En savoir plus
         </nuxt-link>
       </p>
-      <p v-if="userId">
+      <p v-if="userName">
         Identifiant
         <span class="font-bold font-mono">
-          {{ userId }}
+          {{ userName }}
         </span>
       </p>
       <nuxt-link
@@ -54,7 +54,7 @@ export default {
   },
   computed: {
     ...mapState({
-      userId: state => state.user.id
+      userName: state => state.user.name
     })
   }
 }

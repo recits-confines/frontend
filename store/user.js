@@ -26,6 +26,9 @@ export const mutations = {
     } else {
       state.name = Math.random().toString(36).substr(2, 9)
     }
+    if (!state.created_at) {
+      state.created_at = new Date()
+    }
   },
   data (state, data) {
     state = Object.assign(state, data)
