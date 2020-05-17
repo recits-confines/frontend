@@ -36,7 +36,6 @@ export default {
   */
   plugins: [
     '~/plugins/formulate',
-    '~/plugins/loading',
     { src: '~/plugins/shortkey', ssr: false },
     { src: '~/plugins/swing', ssr: false },
     { src: '~/plugins/storage', ssr: false },

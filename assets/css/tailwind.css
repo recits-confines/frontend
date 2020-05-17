@@ -8,7 +8,6 @@
 @import './fonts.css';
 @import './opentype.css';
 @import './forms.css';
-@import '~/node_modules/vue-loading-overlay/dist/vue-loading.css';
 
 html,
 body {
