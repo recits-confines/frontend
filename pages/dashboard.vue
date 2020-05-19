@@ -7,7 +7,7 @@
       Faire une revue de ma semaine
     </nuxt-link>
     <a
-      :href="`mailto:recitsconfines@gmail.com?subject=%5BR%C3%A9cits%20confin%C3%A9s%5D%20Participation%20aux%20entretiens&body=Identifiant%20%3A%20${userId}%0D%0A%0D%0A---%0D%0A%0D%0AVotre%20message%20(optionnel)`"
+      :href="`mailto:recitsconfines@gmail.com?subject=%5BR%C3%A9cits%20confin%C3%A9s%5D%20Participation%20aux%20entretiens&body=Identifiant%20%3A%20${userName}%0D%0A%0D%0A---%0D%0A%0D%0AVotre%20message%20(optionnel)`"
       class="bg-main hover:bg-transparent uppercase font-black text-xs text-center text-background hover:text-main py-2 px-6 my-4 border border-transparent hover:border-main rounded-full"
     >
       <span class="rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-2">Tip</span>
@@ -93,7 +93,7 @@ export default {
   },
   computed: {
     ...mapState({
-      userId: state => state.user.id,
+      userName: state => state.user.name,
       debutCarnet: state => state.user.debutCarnet
     })
   },

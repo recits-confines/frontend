@@ -1,6 +1,6 @@
 [
   {
-    "name": "training",
+    "name": "_training",
     "context": "Pour répondre",
     "body": "<b>Oui</b> ✔ ➡<br><br>⬅ <b>Non</b> ❌<br><br>◀ <b>Retour arrière</b>"
   },

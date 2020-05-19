@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     ...mapState({
-      initiated: state => !!state.user.id
+      initiated: state => !!state.user.name
     })
   }
 }

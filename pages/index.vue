@@ -72,8 +72,8 @@ export default {
   },
   computed: {
     ...mapState({
-      initial: state => !state.user.id,
-      dailyToday: state => state.user.lastDaily === new Date((new Date()).toDateString()),
+      initial: state => !state.user.name,
+      dailyToday: state => new Date(state.user.lastDaily).toDateString() === new Date().toDateString(),
       loaded: state => state.isLoaded
     })
   },
