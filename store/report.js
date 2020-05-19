@@ -32,7 +32,11 @@ export const actions = {
     if (state.type === 'daily') {
       state.date = new Date(state.date.toDateString())
     } else if (state.type === 'weekly') {
-      state.date = new Date(new Date(state.date.setDate(state.date.getDate() + 7 - state.date.getDay())).toDateString())
+      state.date = new Date(new Date(state.date.setDate(
+        state.date.getDate() -
+        state.date.getDay() +
+        (state.date.getDay() === 0 ? -6 : 1)
+      )).toDateString())
     } else if (state.type === 'initial') {
       state.date = rootState.user.created_at
     }

@@ -1,5 +1,11 @@
 <template>
   <Page title="Les événements de la semaine">
+    <p class="text-center mb-3">
+      Semaine du
+      <span class="font-bold">
+        {{ new Intl.DateTimeFormat(undefined, { dateStyle: 'full' }).format(weekDate()) }}
+      </span>
+    </p>
     <nuxt-link
       v-for="(form, index) in forms"
       :key="form.title"
@@ -56,6 +62,9 @@ export default {
       await this.store()
       this.$router.push('/weekly/end')
       this.$nuxt.$loading.finish()
+    },
+    weekDate () {
+      return new Date(new Date().setDate(new Date().getDate() - new Date().getDay() + (new Date().getDay() === 0 ? -6 : 1)))
     }
   }
 }
