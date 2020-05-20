@@ -208,20 +208,24 @@ export default {
       }
     },
     swingRight () {
-      const cards = this.$refs.swing.cards
-      cards[cards.length - 1].throwOut(0, 0, this.$swing.Direction.RIGHT)
+      const cards = this.$refs.swing.cards ?? []
+      if (cards.length > 0) {
+        cards[cards.length - 1].throwOut(0, 0, this.$swing.Direction.RIGHT)
+      }
     },
     swingLeft () {
-      const cards = this.$refs.swing.cards
+      const cards = this.$refs.swing.cards ?? []
       if (this.carrousel) {
         this.swingBack()
-      } else {
+      } else if (cards.length > 0) {
         cards[cards.length - 1].throwOut(0, 0, this.$swing.Direction.LEFT)
       }
     },
     swingUp () {
-      const cards = this.$refs.swing.cards
-      cards[cards.length - 1].throwOut(0, 0, this.$swing.Direction.UP)
+      const cards = this.$refs.swing.cards ?? []
+      if (cards.length > 0) {
+        cards[cards.length - 1].throwOut(0, 0, this.$swing.Direction.UP)
+      }
     },
     swingBack () {
       if (this.previous.length > 0) {
