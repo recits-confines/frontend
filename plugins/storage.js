@@ -6,7 +6,7 @@ export default ({ store }) => {
       key: 'user',
       paths: ['user'],
       fetchBeforeUse: true,
-      rehydrated: store => store.commit('loaded')
+      rehydrated: async store => await store.dispatch('hydrate')
     })(store)
   })
 }

@@ -7,3 +7,10 @@ export const mutations = {
     state.isLoaded = true
   }
 }
+
+export const actions = {
+  async hydrate ({ commit, dispatch }) {
+    commit('loaded')
+    await dispatch('user/sentry')
+  }
+}

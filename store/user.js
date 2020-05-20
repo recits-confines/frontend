@@ -52,6 +52,7 @@ export const actions = {
     } catch (e) {
       await dispatch('createUser')
     }
+    await dispatch('sentry')
   },
   async setUser ({ commit, dispatch, state }, userName) {
     if (state.name) {
@@ -62,6 +63,7 @@ export const actions = {
     } else {
       await dispatch('createUser')
     }
+    await dispatch('sentry')
   },
   async createUser ({ commit, state }) {
     const oldName = state.name
@@ -88,5 +90,13 @@ export const actions = {
     if (!state.id) {
       await dispatch('obtainId')
     }
+  },
+  sentry ({ state }) {
+    this.$sentry.configureScope((scope) => {
+      scope.setUser({
+        id: state.id,
+        username: state.name
+      })
+    })
   }
 }
