@@ -6,7 +6,8 @@
         "name": "a1",
         "label": "Description et étendue de votre zone de déconfinement",
         "type": "textarea",
-        "validation": "required"
+        "validation": "required",
+        "print": "Préambule d'affichage"
       }
     ]
   },
@@ -17,7 +18,8 @@
         "name": "r1",
         "label": "Description et étendue de votre zone de déconfinement",
         "type": "textarea",
-        "validation": "required"
+        "validation": "required",
+        "print": "Préambule d'affichage"
       }
     ]
   },
@@ -28,7 +30,8 @@
         "name": "r1",
         "label": "Description et étendue de votre zone de déconfinement",
         "type": "textarea",
-        "validation": "required"
+        "validation": "required",
+        "print": "Préambule d'affichage"
       }
     ]
   }
