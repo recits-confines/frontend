@@ -32,7 +32,7 @@
     "eslint": "^6.1.0",
     "eslint-plugin-nuxt": ">=1.0.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
-    "stylelint": "^13.5.0",
+    "stylelint": "^13.6.0",
     "@vue/test-utils": "^1.0.3",
     "babel-jest": "^26.0.1",
     "jest": "^24.1.0",
