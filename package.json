@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@braid/vue-formulate": "^2.4.1",
-    "@braid/vue-formulate-i18n": "^1.9.0",
+    "@braid/vue-formulate-i18n": "^1.10.0",
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/sentry": "^4.1.2",
