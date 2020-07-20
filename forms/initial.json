@@ -15,17 +15,17 @@
   },
   {
     "name": "periode_confinement",
-    "label": "Êtes-vous en période de confinement ?" ,
+    "label": "Êtes-vous en période de confinement ?",
     "type": "checkbox"
   },
   {
     "name": "periode_deconfinement",
-    "label": "Êtes-vous en période de déconfinement ?" ,
+    "label": "Êtes-vous en période de déconfinement ?",
     "type": "checkbox"
   },
   {
     "name": "periode_reconfinement",
-    "label": "Êtes-vous en période de reconfinement ?" ,
+    "label": "Êtes-vous en période de reconfinement ?",
     "type": "checkbox"
   },
   {
