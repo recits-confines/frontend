@@ -173,13 +173,13 @@ export default {
         //   break
         case this.$swing.Direction.LEFT:
           this.answers[this.current.name] = false
-          this.previous.push(...this.cards.filter(card => card.negative === this.current.name))
-          this.cards = this.cards.filter(card => card.negative !== this.current.name)
+          this.previous.push(...this.cards.filter(card => card.positive === this.current.name))
+          this.cards = this.cards.filter(card => card.positive !== this.current.name)
           break
         case this.$swing.Direction.RIGHT:
           this.answers[this.current.name] = true
-          this.previous.push(...this.cards.filter(card => card.positive === this.current.name))
-          this.cards = this.cards.filter(card => card.positive !== this.current.name)
+          this.previous.push(...this.cards.filter(card => card.negative === this.current.name))
+          this.cards = this.cards.filter(card => card.negative !== this.current.name)
       }
     },
     onThrowOutEnd () {
