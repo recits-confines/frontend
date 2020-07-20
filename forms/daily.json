@@ -14,7 +14,7 @@
   },
   {
     "name": "collations",
-    "label": "Nombres de collations dans la journée",
+    "label": "Nombres de repas dans la journée",
     "type": "select",
     "options": {
       "0": "0",
