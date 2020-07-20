@@ -1,37 +1,42 @@
 [
   {
-    "name": "during_area_description",
-    "label": "Description de l'espace de confinement",
+    "name": "area_description",
+    "label": "Décrivez votre espace de vie :",
     "type": "textarea",
     "help": "Type, surface, état du logement, environnement extérieur, chez qui ?",
     "validation": "required"
   },
   {
-    "name": "after_area_description",
-    "label": "Description et étendue de votre zone de déconfinement",
+    "name": "people_confined_with" ,
+    "label": "Qui habite avec vous ?",
     "type": "textarea",
+    "help": "nombre, type de relation, âge",
     "validation": "required"
   },
   {
-    "name": "alone",
-    "label": "Je suis confiné seul",
+    "name": "periode_confinement",
+    "label": "Êtes-vous en période de confinement ?" ,
+    "type": "checkbox"
+  },
+  {
+    "name": "periode_deconfinement",
+    "label": "Êtes-vous en période de déconfinement ?" ,
+    "type": "checkbox"
+  },
+  {
+    "name": "periode_reconfinement",
+    "label": "Êtes-vous en période de reconfinement ?" ,
     "type": "checkbox"
   },
   {
     "name": "people",
-    "label": "Personnes confinées avec vous",
+    "label": "Qui habite avec vous ?",
     "type": "textarea",
     "help": "Nombre, lien, âge"
   },
   {
-    "name": "moral",
-    "label": "Moral initial au début du confinement",
-    "type": "emojirange",
-    "validation": "required"
-  },
-  {
     "name": "stocks",
-    "label": "Avez-vous fait des stocks ? Qu’avez-vous acheté en priorité ?",
+    "label": "Avez-vous fait des stocks et si non, pourquoi ? Qu’avez-vous acheté en priorité ?",
     "type": "textarea",
     "validation": "required"
   }
