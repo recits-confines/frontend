@@ -35,9 +35,7 @@
   {
     "name": "alcohol",
     "body": "J’ai consommé de l'alcool",
-    "icon": "🍷",
-    "positive": "alcoholPlus",
-    "negative": "tobacco"
+    "icon": "🍷"
   },
   {
     "name": "alcoholPlus",
@@ -53,15 +51,13 @@
   {
     "name": "sortie",
     "body": "Je suis sorti",
-    "icon": "🌳",
-    "positive": "sortie"
+    "icon": "🌳"
   },
   {
     "name": "sortieCourses",
     "body": "Pour acheter de la nourriture",
     "icon": "🍞",
     "positive": "sortie"
-
   },
   {
     "name": "sortieTravail",
