@@ -7,25 +7,24 @@
   {
     "name": "inquiet",
     "body": "Je suis inquiet",
-    "icon": "😕"
+    "icon": "😕",
+    "positive": "inquietProches",
+    "negative": "sommeil"
   },
   {
     "name": "inquietProches",
     "body": "Inquiet pour la santé de mes proches",
-    "icon": "👨‍👩‍👧‍👦",
-    "relates": "inquiet"
+    "icon": "👨👩👧👦"
   },
   {
     "name": "inquietFinances",
     "body": "Inquiet pour mes conditions financières",
-    "icon": "💰",
-    "relates": "inquiet"
+    "icon": "💰"
   },
   {
     "name": "inquietSanitaire",
-    "body": "Inquiet pour la situation sanitaire",
-    "icon": "😷",
-    "relates": "inquiet"
+    "body": "Inquiet pour la situation sanitaire globale",
+    "icon": "😷"
   },
   {
     "name": "sommeil",
@@ -35,7 +34,9 @@
   {
     "name": "alcohol",
     "body": "J’ai consommé de l'alcool",
-    "icon": "🍷"
+    "icon": "🍷",
+    "positive": "alcoholPlus",
+    "negative": "tobacco"
   },
   {
     "name": "alcoholPlus",
@@ -51,65 +52,34 @@
   {
     "name": "sortie",
     "body": "Je suis sorti",
-    "icon": "🌳"
-  },
-  {
-    "name": "sortieSport",
-    "body": "Pour faire du sport",
-    "icon": "🏃",
-    "relates": "sortie"
+    "icon": "🌳",
+    "positive": "sortieCourses",
+    "negative": "routineDouche"
   },
   {
     "name": "sortieCourses",
     "body": "Pour acheter de la nourriture",
-    "icon": "🍞",
-    "relates": "sortie"
-  },
-  {
-    "name": "sortieChien",
-    "body": "Pour promener le chien",
-    "icon": "🐶",
-    "relates": "sortie"
+    "icon": "🍞"
   },
   {
     "name": "sortieTravail",
     "body": "Pour aller travailler",
-    "icon": "💼",
-    "relates": "sortie"
+    "icon": "💼"
   },
   {
     "name": "sortieAutre",
     "body": "Pour une autre raison",
-    "icon": "🏙",
-    "relates": "sortie"
-  },
-  {
-    "name": "livraison",
-    "body": "J’ai fait des achats en ligne",
-    "icon": "🚚"
-  },
-  {
-    "name": "livraisonNourriture",
-    "body": "Des provisions de nourriture",
-    "icon": "🍅",
-    "relates": "livraison"
-  },
-  {
-    "name": "livraisonAutre",
-    "body": "Autre chose que de la nourriture",
-    "icon": "📦",
-    "relates": "livraison"
-  },
-  {
-    "name": "livraisonOnline",
-    "body": "J’achète plus en ligne qu’avant",
-    "icon": "💳",
-    "relates": "livraison"
+    "icon": "🏙"
   },
   {
     "name": "routineDouche",
-    "body": "Je me suis douché/habillé",
+    "body": "Je me suis douché",
     "icon": "🚿"
+  },
+  {
+    "name": "routineHabiller",
+    "body": "Je me suis habillé",
+    "icon": "👕"
   },
   {
     "name": "devoir",
@@ -125,5 +95,10 @@
     "name": "sportDomicile",
     "body": "J’ai fait du sport à la maison",
     "icon": "🏋"
+  },
+  {
+    "name": "travauxChamp",
+    "body": "J’ai travaillé aux champs",
+    "icon": "🌾"
   }
 ]
