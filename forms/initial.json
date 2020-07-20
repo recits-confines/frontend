@@ -7,7 +7,7 @@
     "validation": "required"
   },
   {
-    "name": "people_confined_with" ,
+    "name": "people_confined_with",
     "label": "Qui habite avec vous ?",
     "type": "textarea",
     "help": "nombre, type de relation, âge",
