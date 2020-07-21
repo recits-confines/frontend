@@ -65,7 +65,7 @@
       },
       {
         "name": "alimentation3",
-        "label": "Si vous êtes sorti vous approvisionner en nourriture, quels gestes avez-vous adopté pour vous protéger ?",
+        "label": "Si vous êtes sorti vous approvisionner en nourriture, quels gestes avez-vous adoptés pour vous protéger ?",
         "type": "textarea",
         "validation": "required",
         "print": "Préambule d'affichage"
@@ -194,7 +194,7 @@
       },
       {
         "name": "ext3",
-        "label": "Si vous possédez un masque, expliquez la façon dont vous vous l’êtes procuré,son aspect et ses caractéristiques techniques. Comment et quand le portez-vous ?",
+        "label": "Si vous possédez un masque, expliquez la façon dont vous vous l’êtes procuré, son aspect et ses caractéristiques techniques. Comment et quand le portez-vous ?",
         "type": "textarea",
         "validation": "required",
         "print": "Préambule d'affichage"
@@ -241,7 +241,7 @@
       },
       {
         "name": "int2",
-        "label": "Par quelles émotions êtes-vous passé pendant cette période particulière ? Qu’avais-vous fait de ces émotions et avec qui en avez-vous parlé ?",
+        "label": "Par quelles émotions êtes-vous passé pendant cette période particulière ? Qu’avez-vous fait de ces émotions et avec qui en avez-vous parlé ?",
         "type": "textarea",
         "validation": "required",
         "print": "Préambule d'affichage"
@@ -262,7 +262,7 @@
       },
       {
         "name": "int5",
-        "label": "Par quels médias vous êtes-vous informés sur la Covid-19 cette semaine ? Qu’en pensez-vous ?",
+        "label": "Par quels média vous êtes-vous informés sur la Covid-19 cette semaine ? Qu’en pensez-vous ?",
         "type": "textarea",
         "validation": "required",
         "print": "Préambule d'affichage"
