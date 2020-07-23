@@ -45,10 +45,4 @@
     "type": "emojirange",
     "validation": "required"
   },
-  {
-    "name": "relations",
-    "label": "Etat des relations avec les co-confiné.e.s",
-    "type": "emojirange",
-    "validation": "required"
-  }
 ]
