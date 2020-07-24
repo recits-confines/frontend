@@ -39,7 +39,7 @@ export default {
     }
   },
   beforeMount () {
-    this.scheduleAvailable = Notification && 'showTrigger' in Notification.prototype
+    this.scheduleAvailable = (typeof Notification !== 'undefined') && Notification && 'showTrigger' in Notification.prototype
   },
   methods: {
     async schedule () {
