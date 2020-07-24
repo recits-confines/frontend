@@ -10,8 +10,7 @@
     "name": "people_confined_with",
     "label": "Qui habite avec vous ?",
     "type": "textarea",
-    "help": "nombre, type de relation, âge",
-    "validation": "required"
+    "help": "nombre, type de relation, âge"
   },
   {
     "name": "periode_confinement",
@@ -27,12 +26,6 @@
     "name": "periode_reconfinement",
     "label": "Êtes-vous en période de reconfinement ?",
     "type": "checkbox"
-  },
-  {
-    "name": "people",
-    "label": "Qui habite avec vous ?",
-    "type": "textarea",
-    "help": "Nombre, lien, âge"
   },
   {
     "name": "stocks",
