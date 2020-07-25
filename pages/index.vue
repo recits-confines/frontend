@@ -42,13 +42,20 @@
         >
           J’ai déjà un identifiant
         </nuxt-link>
-        <nuxt-link
-          v-else-if="dailyToday"
-          to="/dashboard"
-          class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
-        >
-          Voir mon tableau de bord
-        </nuxt-link>
+        <div v-else-if="dailyToday">
+          <nuxt-link
+            to="/weekly"
+            class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
+          >
+            Faire une revue de ma semaine
+          </nuxt-link>
+          <nuxt-link
+            to="/dashboard"
+            class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
+          >
+            Voir mon tableau de bord
+          </nuxt-link>
+        </div>
         <nuxt-link
           v-else
           to="/daily"

@@ -5,13 +5,28 @@
         C’est tout pour aujourd’hui.
       </h2>
       <p class="my-5">
-        Maintenant, je peux visualiser mon historique confiné.
+        Prenez un instant pour remplir votre revue hebdomadaire.
       </p>
+      <nuxt-link
+        to="/weekly"
+        class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
+      >
+        Faire une revue de ma semaine
+      </nuxt-link>
+      <p class="my-5">
+        Vous pouvez aussi
+      </p>
+      <nuxt-link
+        to="/user/stories/create"
+        class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
+      >
+        Ajouter une anecdote
+      </nuxt-link>
       <nuxt-link
         to="/dashboard"
         class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
       >
-        Mon historique confiné
+        Voir mon historique confiné
       </nuxt-link>
       <button
         v-if="scheduleAvailable"

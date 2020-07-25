@@ -1,5 +1,8 @@
 <template>
   <Page title="Mon historique confiné">
+    <p class="my-5">
+      Pensez à faire la revue de votre semaine !
+    </p>
     <nuxt-link
       to="/weekly"
       class="bg-main hover:bg-transparent uppercase font-black text-center text-background hover:text-main py-2 px-6 my-4 border border-transparent hover:border-main rounded-full"
