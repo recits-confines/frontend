@@ -19,7 +19,7 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/sentry": "^4.2.1",
     "idb": "^5.0.4",
-    "nuxt": "^2.13.3",
+    "nuxt": "^2.14.0",
     "swing": "^3.1.4",
     "vue-shortkey": "^3.1.7",
     "vuex-persistedstate": "^3.0.1"
