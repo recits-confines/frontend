@@ -13,35 +13,30 @@
         "name": "routine2",
         "label": "Comment avez-vous adapté votre activité professionnelle ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "routine3",
         "label": "Quelles sont les nouvelles habitudes que vous avez adoptées ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "routine4",
         "label": "Avez-vous vu naître des frustrations sur des choses que vous auriez voulu faire ? Lesquelles ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "routine5",
         "label": "Quelles sont les nouvelles activités que vous avez mises en place depuis le confinement?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "routine6",
         "label": "Avez-vous appris des compétences ou commencé un apprentissage quelconque ? Racontez",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       }
     ]
@@ -53,35 +48,30 @@
         "name": "alimentation1",
         "label": "Avez-vous modifié vos habitudes de consommation alimentaire par rapport à avant le confinement ? Si oui, expliquez les changements.",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "alimentation2",
         "label": "A cause des restrictions, avez-vous changé de lieux d’approvisionnement en nourriture ? Racontez ces changements",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "alimentation3",
         "label": "Si vous êtes sorti vous approvisionner en nourriture, quels gestes avez-vous adoptés pour vous protéger ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "alimentation4",
         "label": "Racontez-nous votre expérience de sortie pour un achat alimentaire. Comment l’avez-vous vécu ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "alimentation5",
         "label": "Avez-vous modifié vos habitudes de consommation d’alcool et de tabac par rapport à vos consommations habituelles ? Pourquoi ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       }
     ]
@@ -93,84 +83,72 @@
         "name": "entretien1",
         "label": "Décrivez vos activités physiques de la semaine",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "entretien2",
         "label": "Comment vous êtes-vous habillés cette semaine ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "entretien3",
         "label": "Avez-vous fait vos rituels du matin pour vous préparer durant cette période de confinement ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "entretien4",
         "label": "Avez-vous eu besoin de soins médicaux cette semaine? Et votre entourage ? Si oui, auprès de qui? Qu’avez-vous fait? (Prise de rdv médical, vous vous êtes soigné seul.e avec les remèdes que vous aviez chez vous, achat à la pharmacie, pharmacopée, attente que ça passe…)",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "entretien5",
         "label": "Avez-vous fait de l’automédication cette semaine ? Quels étaient les symptômes et quels traitements avez-vous pris? Racontez (médicaments à la pharmacie, plantes, écorces, racine, kaolin, etc.)",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "entretien6",
         "label": "Quels nouveaux gestes d’hygiène / gestes barrières avez-vous mis en place? (vous laver fréquemment les mains, penser au virus, désinfecter, ne pas toucher les poignées, utiliser ses coudes…)",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "entretien7",
         "label": "Donnez-vous à vos enfants ou à vos proches des conseils relatifs à l’hygiène ? Si oui, lesquels et pourquoi ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "entretien8",
         "label": "Pensez-vous avoir contracté la Covid-19 ? Etes-vous attentifs à l’apparition de symptômes ? Surveillez-vous vos proches ? Racontez",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "entretien9",
         "label": "Avez-vous déjà conseillé une personne ayant les symptômes de la Covid-19 ? Qu’avez-vous fait ? Quels conseils lui avez-vous donné ? Racontez",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "entretien10",
         "label": "Quelles précautions personnelles prenez-vous pour ne pas être contaminé ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "entretien11",
         "label": "Êtes-vous méfiant vis-à-vis des autres, des acteurs publics ou des étrangers ? Expliquez vos ressentis.",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "entretien12",
         "label": "Quel est votre attitude face à une personne contaminée ou suspecté de l’être ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       }
     ]
@@ -182,49 +160,42 @@
         "name": "ext1",
         "label": "Quand vous sortez de chez vous, quels déplacements intra-urbains et interurbains faites-vous ? Racontez",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "ext2",
         "label": "Limitez-vous vos sorties à l’extérieur ? Si oui, pour quelles raisons ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "ext3",
         "label": "Si vous possédez un masque, expliquez la façon dont vous vous l’êtes procuré, son aspect et ses caractéristiques techniques. Comment et quand le portez-vous ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "ext4",
         "label": "Qu’avez-vous remarqué dans vos rapports avec les personnes croisées lors de vos déplacements ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "ext5",
         "label": "Que pensez-vous des décisions prises par le gouvernement pour combattre la pandémie ? Etes-vous d’accord avec les directives et les restrictions de libertés individuelles ? Les respectez-vous à la lettre ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "ext6",
         "label": "Pour combattre la pandémie, le gouvernement a fermé les écoles et les lieux de culte. Qu’en pensez-vous ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "ext7",
         "label": "Suite à la fermeture des lieux de culte, que faites-vous pour continuer votre pratique religieuse ? Racontez",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       }
     ]
@@ -236,77 +207,66 @@
         "name": "int1",
         "label": "Quelle est la nature de vos relations avec les personnes confinées avec vous ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "int2",
         "label": "Par quelles émotions êtes-vous passé pendant cette période particulière ? Qu’avez-vous fait de ces émotions et avec qui en avez-vous parlé ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "int3",
         "label": "La période de confinement vous a-t-elle fait prendre des décisions dans votre vie, actuelle et future ? Si oui lesquelles ? Si non pourquoi ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "int4",
         "label": "Avez-vous adopté de nouvelles pratiques culturelles depuis le confinement ? Racontez",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "int5",
         "label": "Par quels média vous êtes-vous informés sur la Covid-19 cette semaine ? Qu’en pensez-vous ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "int6",
         "label": "Pensez-vous que la Covid-19 est prise au sérieux par la population ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "int7",
         "label": "Avez-vous pris ou repris contact avec des personnes éloignées ? Si oui lesquelles, si non pourquoi ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "int8",
         "label": "Avez-vous changé vos habitudes d’interaction sociale ? Comment saluez-vous les amis ou connaissances que vous rencontrez ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "int9",
         "label": "Avez-vous commencé à utiliser (ou à utiliser plus fréquemment) des sites web ou des applications sur votre ordinateur ou votre téléphone portable ? Dites-nous lesquels et comment vous les utilisez",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "int10",
         "label": "Avez-vous vu se mettre en place des solidarités dans votre entourage / voisinage ? Lesquelles ? Et par qui ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
         "name": "int11",
         "label": "Avez-vous remarqué l’existence d’initiatives de solidarité organisées par les pouvoirs publics (mairie, gouvernement) ou des associations, coopératives, communautés religieuses… ? Si oui lesquelles ? Qu’en pensez-vous ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       }
     ]
