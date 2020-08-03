@@ -17,7 +17,7 @@
     "@braid/vue-formulate-i18n": "^1.11.0",
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "@nuxtjs/sentry": "^4.2.1",
+    "@nuxtjs/sentry": "^4.3.4",
     "idb": "^5.0.4",
     "nuxt": "^2.14.1",
     "swing": "^3.1.4",
