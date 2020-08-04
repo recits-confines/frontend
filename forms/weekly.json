@@ -6,7 +6,6 @@
         "name": "routine1",
         "label": "Que pensez-vous de votre lieu de confinement ?",
         "type": "textarea",
-        "validation": "required",
         "print": "Préambule d'affichage"
       },
       {
