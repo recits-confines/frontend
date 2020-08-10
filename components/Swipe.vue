@@ -208,13 +208,13 @@ export default {
       }
     },
     swingRight () {
-      const cards = this.$refs.swing.cards ?? []
+      const cards = this.$refs.swing.cards || []
       if (cards.length > 0) {
         cards[cards.length - 1].throwOut(0, 0, this.$swing.Direction.RIGHT)
       }
     },
     swingLeft () {
-      const cards = this.$refs.swing.cards ?? []
+      const cards = this.$refs.swing.cards || []
       if (this.carrousel) {
         this.swingBack()
       } else if (cards.length > 0) {
@@ -222,7 +222,7 @@ export default {
       }
     },
     swingUp () {
-      const cards = this.$refs.swing.cards ?? []
+      const cards = this.$refs.swing.cards || []
       if (cards.length > 0) {
         cards[cards.length - 1].throwOut(0, 0, this.$swing.Direction.UP)
       }

@@ -69,23 +69,42 @@
         v-if="!values.id"
         name="autorisation1"
         type="checkbox"
-        label="J’accepte librement et volontairement de participer au projet de recherche intitulé « Récits Confinés »."
+        label="J’accepte librement et volontairement de participer au projet de recherche intitulé"
         validation="required"
-      />
+      >
+        <template #label="{ label, id }">
+          <label :for="id" class="formulate-input-label formulate-input-label--after">
+            {{ label }} <q>Récits Confinés</q>.
+          </label>
+        </template>
+      </FormulateInput>
       <FormulateInput
         v-if="!values.id"
         name="autorisation2"
         type="checkbox"
-        label="Je suis informé.e. qu’à tout moment, je peux interrompre ma participation dans cette étude, sans que cela me porte préjudice."
+        label="Je suis informé·e qu’à tout moment, je peux interrompre ma participation dans cette étude, sans que cela me porte préjudice."
         validation="required"
       />
       <FormulateInput
         v-if="!values.id"
         name="autorisation3"
         type="checkbox"
-        label="J’ai été informé.e de la protection et de la confidentialité des informations et j’y consens."
+        label="J’ai été informé·e de la protection et de la confidentialité des informations et j’y consens."
         validation="required"
-      />
+      >
+        <template #label="{ label, id }">
+          <label :for="id" class="formulate-input-label formulate-input-label--after">
+            {{ label }}
+            <nuxt-link
+              to="/privacy"
+              class="text-main hover:text-black"
+              target="_blank"
+            >
+              Lire la politique de confidentialité
+            </nuxt-link>
+          </label>
+        </template>
+      </FormulateInput>
 
       <FormulateErrors />
       <FormulateInput

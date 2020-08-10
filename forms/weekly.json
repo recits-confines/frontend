@@ -98,7 +98,7 @@
       },
       {
         "name": "entretien4",
-        "label": "Avez-vous eu besoin de soins médicaux cette semaine? Et votre entourage ? Si oui, auprès de qui? Qu’avez-vous fait? (Prise de rdv médical, vous vous êtes soigné seul.e avec les remèdes que vous aviez chez vous, achat à la pharmacie, pharmacopée, attente que ça passe…)",
+        "label": "Avez-vous eu besoin de soins médicaux cette semaine? Et votre entourage ? Si oui, auprès de qui? Qu’avez-vous fait? (Prise de rdv médical, vous vous êtes soigné seul·e avec les remèdes que vous aviez chez vous, achat à la pharmacie, pharmacopée, attente que ça passe…)",
         "type": "textarea",
         "print": "Préambule d'affichage"
       },
