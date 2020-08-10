@@ -10,7 +10,7 @@
         type="date"
         name="created_at"
         label="Je suis confiné depuis le (JJ/MM/AAAA)"
-        :validation="[['required'], ['after', '2020-01-01'], ['before', new Date()]]"
+        :validation="[['required'], ['date:DD/MM/YYYY'], ['after', '2020-01-01'], ['before', new Date()]]"
         min="2020-01-01"
         pattern="\d{2}/\d{2}/\d{4}"
         :validation-messages="{
