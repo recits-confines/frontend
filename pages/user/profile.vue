@@ -9,10 +9,10 @@
       <FormulateInput
         type="date"
         name="created_at"
-        label="Je suis confiné depuis le (JJ/MM/AAAA)"
-        :validation="[['required'], ['date:DD/MM/YYYY'], ['after', '2020-01-01'], ['before', new Date()]]"
+        label="Je suis confiné depuis le"
+        :validation="[['required'], ['date:DD/MM/YYYY'], ['after', '2020-01-01'], ['before']]"
+        placeholder="--/--/----"
         min="2020-01-01"
-        pattern="\d{2}/\d{2}/\d{4}"
         :validation-messages="{
           required: 'La date de début est obligatoire',
           after: 'La date est trop ancienne',
