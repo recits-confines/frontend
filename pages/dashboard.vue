@@ -1,6 +1,6 @@
 <template>
   <Page title="Mon historique confiné">
-    <p class="my-5">
+    <p class="my-5 text-center">
       Pensez à faire la revue de votre semaine !
     </p>
     <nuxt-link
@@ -19,8 +19,9 @@
     <div
       v-for="date in dates"
       :key="date.date.toDateString()"
-      class="bg-white rounded-lg shadow-lg p-10 min-h-5 my-4"
+      class="bg-white rounded-lg shadow-lg p-10 pt-4 min-h-5 my-4"
     >
+      <p class="text-2xl text-center">{{ weather(date.data) }}</p>
       <h3 class="text-xs font-semibold text-center">
         {{ new Intl.DateTimeFormat(undefined, { dateStyle: 'full' }).format(date.date) }}
       </h3>
@@ -30,33 +31,32 @@
       <hr class="border-secondary w-3 mx-auto my-2">
 
       <p>
-        Ce jour là,
-        <span v-if="date.inquiet !== null">
-          je <b>{{ inquiet(date) }} inquiet</b>
-          <span v-if="date.inquiet">pour <b>{{ formater.format(Object.entries({
+        <em class="text-xl font-light">Ce jour là,</em>
+        <span v-if="date.data.inquiet !== null">
+          je <b>{{ inquiet(date.data) }} inquiet</b><span v-if="date.data.inquiet"> pour <b>{{ formater.format(Object.entries({
             inquietProches: 'la santé de mes proches',
             inquietFinances: 'mes conditions financières',
             inquietSanitaire: 'la situation sanitaire globale'
-          }).filter(el => data[el[0]]).map(el => el[1])) }}</b></span>,
+          }).filter(el => date.data[el[0]]).map(el => el[1])) }}</b></span>,
         </span>
-        <span v-if="date.alcohol">et <b>j'ai consommé de l’alcool</b>,</span>
-        <span v-if="date.sommeil !== null">et j'ai plutôt <b>{{ sommeil(date) }} dormi</b></span>.
+        <span v-if="date.data.alcohol"><b>j'ai consommé de l’alcool</b>,</span>
+        <span v-if="date.data.sommeil !== null">et j'ai plutôt <b>{{ sommeil(date.data) }} dormi</b></span>.
       </p>
-      <p v-if="date.sortie">
+      <p v-if="date.data.sortie">
         Je <b>suis</b> sorti, pour <b>{{ formater.format(Object.entries({
           sortieCourses: 'acheter de la nourriture',
           sortieTravail: 'aller travailler',
           sortieAutre: 'd\'autres raisons'
-        }).filter(el => data[el[0]]).map(el => el[1])) }}</b>.
+        }).filter(el => date.data[el[0]]).map(el => el[1])) }}</b>.
       </p>
       <p v-else>
         Je <b>ne suis pas</b> sorti.
       </p>
       <p>
-        <span v-if="date.routineDouche !== null">Je <b>{{ routine(date.routineDouche) }} douché</b>,</span>
-        <span v-if="date.routineHabiller !== null">je <b>{{ routine(date.routineHabiller) }} habillé</b>,</span>
-        <span v-if="date.sportDomicile !== null">{{ taches(date.sportDomicile) }} du <b>sport</b> et </span>
-        <span v-if="date.travauxChamp !== null"><b>{{ taches(date.travauxChamp) }} travaillé dans mon champs</b></span>.
+        <span v-if="date.data.routineDouche !== null">Je <b>{{ routine(date.data.routineDouche) }} douché</b>,</span>
+        <span v-if="date.data.routineHabiller !== null">je <b>{{ routine(date.data.routineHabiller) }} habillé</b>,</span>
+        <span v-if="date.data.sportDomicile !== null">{{ taches(date.data.sportDomicile) }} fait du <b>sport</b> et </span>
+        <span v-if="date.data.travauxChamp !== null"><b>{{ taches(date.data.travauxChamp) }} travaillé dans mon champs</b></span>.
       </p>
     </div>
   </Page>
@@ -101,6 +101,18 @@ export default {
         dateCompare.getMonth(),
         dateCompare.getDate()
       ) - datePast) / (1000 * 60 * 60 * 24))
+    },
+    weather ({ weather }) {
+      switch (weather) {
+        case 'soleil':
+          return '☀'
+        case 'nuages':
+          return '☁'
+        case 'pluie':
+          return '🌧'
+        case 'orages':
+          return '🌩'
+      }
     },
     sommeil ({ sommeil }) {
       return sommeil ? 'bien' : 'mal'
