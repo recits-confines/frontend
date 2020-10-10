@@ -114,6 +114,8 @@ export default {
           return '🌧'
         case 'orages':
           return '🌩'
+        default:
+          return ''
       }
     },
     sommeil ({ sommeil }) {
