@@ -29,9 +29,11 @@ Vue.use({
           }
           return (await Vue.db).get('daily', key)
         },
-        async add (val) {
-          val.date = new Date((new Date()).toDateString())
-          return (await Vue.db).put('daily', val)
+        async add ({ data, date = null }) {
+          if (!date) {
+            date = new Date((new Date()).toDateString())
+          }
+          return (await Vue.db).put('daily', { data, date })
         },
         async delete (key) {
           return (await Vue.db).delete('daily', key)
@@ -49,13 +51,15 @@ Vue.use({
       weekly: {
         async get (key) {
           if (!key) {
-            key = new Date((new Date()).toDateString())
+            key = new Date(new Date(new Date().setDate(new Date().getDate() - new Date().getDay() + (new Date().getDay() === 0 ? -6 : 1))).toDateString())
           }
           return (await Vue.db).get('weekly', key)
         },
-        async add (val) {
-          val.date = new Date((new Date()).toDateString())
-          return (await Vue.db).put('weekly', val)
+        async add ({ data, date = null }) {
+          if (!date) {
+            date = new Date(new Date(new Date().setDate(new Date().getDate() - new Date().getDay() + (new Date().getDay() === 0 ? -6 : 1))).toDateString())
+          }
+          return (await Vue.db).put('weekly', { data, date })
         },
         async delete (key) {
           return (await Vue.db).delete('weekly', key)

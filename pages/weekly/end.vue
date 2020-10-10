@@ -5,6 +5,9 @@
         C’est tout pour cette semaine.
       </h2>
       <p class="my-5">
+        Je peux à tout moment revenir sur ma revue de la semaine.
+      </p>
+      <p class="my-5">
         Maintenant, je peux visualiser mon historique confiné.
       </p>
       <nuxt-link

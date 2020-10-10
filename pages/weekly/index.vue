@@ -47,15 +47,17 @@ export default {
       dataCount: state => Object.keys(state.report.data).length
     })
   },
-  mounted () {
+  async mounted () {
     if (this.lastReport !== 'weekly') {
       this.init('weekly')
+      await this.load()
     }
   },
   methods: {
     ...mapActions({
       init: 'report/init',
-      store: 'report/store'
+      store: 'report/store',
+      load: 'report/load'
     }),
     async submit () {
       this.$nuxt.$loading.start()
