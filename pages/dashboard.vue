@@ -76,7 +76,11 @@ export default {
   data () {
     return {
       dates: [],
-      formater: new Intl.ListFormat(undefined, { style: 'long', type: 'conjunction' })
+      formater: ('ListFormat' in Intl) ? new Intl.ListFormat(undefined, { style: 'long', type: 'conjunction' }) : {
+        format (list) {
+          list.join(', ')
+        }
+      }
     }
   },
   computed: {
