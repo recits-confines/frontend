@@ -21,7 +21,9 @@
       :key="date.date.toDateString()"
       class="bg-white rounded-lg shadow-lg p-10 pt-4 min-h-5 my-4"
     >
-      <p class="text-2xl text-center">{{ weather(date.data) }}</p>
+      <p class="text-2xl text-center">
+        {{ weather(date.data) }}
+      </p>
       <h3 class="text-xs font-semibold text-center">
         {{ new Intl.DateTimeFormat(undefined, { dateStyle: 'full' }).format(date.date) }}
       </h3>
