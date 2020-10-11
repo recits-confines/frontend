@@ -34,6 +34,8 @@
 
       <p>
         <em class="text-xl font-light">Ce jour là,</em>
+        <span v-if="date.data.moral_daily">le moral est <b>{{ moral(date.data) }}</b>,</span>
+        <span v-if="date.data.sante">je me sens <b>{{ sante(date.data) }}</b>,</span>
         <span v-if="date.data.inquiet !== null">
           je <b>{{ inquiet(date.data) }} inquiet</b><span v-if="date.data.inquiet"> pour <b>{{ formater.format(Object.entries({
             inquietProches: 'la santé de mes proches',
@@ -120,6 +122,32 @@ export default {
           return '🌩'
         default:
           return ''
+      }
+    },
+    moral ({ moral_daily }) {
+      if (moral_daily < 3) {
+        return 'mauvais'
+      } else if (moral_daily < 5) {
+        return 'plutôt bas'
+      } else if (moral_daily < 7) {
+        return 'moyen'
+      } else if (moral_daily < 9) {
+        return 'bon'
+      } else {
+        return 'excellent'
+      }
+    },
+    sante ({ sante }) {
+      if (sante < 3) {
+        return 'très mal'
+      } else if (sante < 5) {
+        return 'plutôt mal'
+      } else if (sante < 7) {
+        return 'ni bien ni mal'
+      } else if (sante < 9) {
+        return 'plutôt bien'
+      } else {
+        return 'très bien'
       }
     },
     sommeil ({ sommeil }) {
