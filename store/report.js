@@ -22,24 +22,26 @@ export const mutations = {
 export const actions = {
   init ({ commit, rootState }, type) {
     commit('type', type)
-    commit('date', new Date())
+    switch (type) {
+      case 'daily':
+        commit('date', new Date(new Date().toDateString()))
+        break
+      case 'weekly':
+        commit('date', new Date(new Date(new Date().setDate(new Date().getDate() - new Date().getDay() + (new Date().getDay() === 0 ? -6 : 1))).toDateString()))
+        break
+      case 'initial':
+        commit('date', rootState.user.created_at)
+        break
+      default:
+        commit('date', new Date())
+        break
+    }
   },
   save ({ commit, state }, data) {
     commit('data', Object.assign(state.data, data))
   },
   async store ({ state, dispatch, rootState }) {
     await dispatch('user/submit', { ...state }, { root: true })
-    if (state.type === 'daily') {
-      state.date = new Date(state.date.toDateString())
-    } else if (state.type === 'weekly') {
-      state.date = new Date(new Date(state.date.setDate(
-        state.date.getDate() -
-        state.date.getDay() +
-        (state.date.getDay() === 0 ? -6 : 1)
-      )).toDateString())
-    } else if (state.type === 'initial') {
-      state.date = rootState.user.created_at
-    }
     if (state.type !== 'initial') {
       await this._vm.$db[state.type].add(state)
     }
@@ -48,5 +50,12 @@ export const actions = {
       ...state
     })
     await dispatch('init', null)
+  },
+  async load ({ state, dispatch }) {
+    const date = await this._vm.$db[state.type].get()
+    if (!date) {
+      return
+    }
+    dispatch('save', date.data)
   }
 }
