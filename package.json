@@ -15,7 +15,7 @@
   "dependencies": {
     "@braid/vue-formulate": "^2.5.0",
     "@braid/vue-formulate-i18n": "^1.14.0",
-    "@nuxtjs/axios": "^5.12.5",
+    "@nuxtjs/axios": "^5.13.0",
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/sentry": "^5.0.0",
     "idb": "^6.0.0",
