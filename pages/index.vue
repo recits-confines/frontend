@@ -31,27 +31,27 @@
         <nuxt-link
           v-if="initial"
           to="/user/profile"
-          class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
+          class="block bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
         >
           Commencer mon journal
         </nuxt-link>
         <nuxt-link
           v-if="initial"
           to="/user/restart"
-          class="bg-transparent hover:bg-main text-main hover:text-background py-2 px-6 rounded-full"
+          class="block bg-transparent hover:bg-main text-main hover:text-background py-2 px-6 rounded-full"
         >
           J’ai déjà un identifiant
         </nuxt-link>
         <div v-else-if="dailyToday">
           <nuxt-link
             to="/weekly"
-            class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
+            class="block bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
           >
             Faire une revue de ma semaine
           </nuxt-link>
           <nuxt-link
             to="/dashboard"
-            class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
+            class="block bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
           >
             Voir mon tableau de bord
           </nuxt-link>
@@ -59,7 +59,7 @@
         <nuxt-link
           v-else
           to="/daily"
-          class="bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
+          class="block bg-main hover:bg-transparent uppercase font-black text-background hover:text-main py-5 px-6 my-4 border border-transparent hover:border-main rounded-full"
         >
           Continuer mon journal
         </nuxt-link>
