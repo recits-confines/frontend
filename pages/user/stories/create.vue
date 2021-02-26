@@ -1,5 +1,5 @@
 <template>
-  <Page title="Mon humeur initiale">
+  <Page title="Anecdote">
     <FormulateForm
       class="pb-20"
       @submit="submit"
