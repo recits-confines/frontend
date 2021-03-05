@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: ['15.x']
         include:
           - language: fr
             domain: recitsconfines.net
@@ -23,7 +23,15 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - run: npm ci
+    - name: Cache
+      uses: actions/cache@v2.1.4
+      with:
+        path: ~/.npm
+        key: npm-${{ hashFiles('package-lock.json') }}
+        restore-keys: npm-
+
+    - name: Install
+      run: npm ci
 
     - run: npm run generate
       env:
